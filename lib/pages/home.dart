@@ -9,18 +9,294 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int myIndex = 2;
 
   @override 
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: navigationBar(),
       appBar: appBar(),
+      body: ListView(
+        children: [
+          SizedBox(height: 20),
+          injuryBox(),
+          SizedBox(height: 15),
+          mainMenus(),
+        ],
+      ),
     );
+  }
+
+  Padding navigationBar() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        decoration: BoxDecoration(
+          color: Color(0xffCCECEE),
+          borderRadius: BorderRadius.circular(45),
+        ),
+        child: BottomNavigationBar(
+          currentIndex: myIndex,
+          backgroundColor: Colors.transparent,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Color(0xffE2FCD6),
+          unselectedItemColor: Color(0xff095D7E),
+          onTap: (index) {
+            setState(() {
+              myIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Container(
+                width: 43, 
+                height: 43, 
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: myIndex == 0 ? Color(0xff095D7E) : Colors.transparent
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/icons/Customer Care.svg',
+                    width: 30,
+                    height: 24,
+                    // ignore: deprecated_member_use
+                    color: myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E)
+                  ),
+                ),
+              ),
+              label: 'Customer Care'
+            ),
+            BottomNavigationBarItem(
+              icon: Container(
+                width: 43, 
+                height: 43, 
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: myIndex == 1 ? Color(0xff095D7E) : Colors.transparent
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/icons/Home.svg',
+                    width: 30,
+                    height: 24,
+                    color: myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E)
+                  ),
+                ),
+              ),
+              label: 'Home'
+            ),
+            BottomNavigationBarItem(
+              icon: Container(
+                width: 43, 
+                height: 43, 
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: myIndex == 2 ? Color(0xff095D7E) : Colors.transparent
+                ),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/icons/Settings.svg',
+                    width: 30,
+                    height: 24,
+                    color: myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E)
+                  ),
+                ),
+              ),
+              label: 'Settings'
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Row mainMenus() {
+    return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 165,
+                  height: 180,
+                  decoration: BoxDecoration(
+                    color: Color(0xff095D7E),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/icons/P3K logo.svg',
+                        width: 52,
+                        height: 42,
+                      ),
+                      Text(
+                        'First Aid Guides',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          color: Color(0xffCCECEE),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15),
+                Container(
+                  width: 165,
+                  height: 180,
+                  decoration: BoxDecoration(
+                    color: Color(0xff095D7E),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/icons/Doctor.svg',
+                        width: 52,
+                        height: 42,
+                      ),
+                      Text(
+                        'Medical Experts',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          color: Color(0xffCCECEE),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 165,
+                  height: 180,
+                  decoration: BoxDecoration(
+                    color: Color(0xff095D7E),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/icons/Contacts.svg',
+                        width: 52,
+                        height: 42,
+                      ),
+                      Text(
+                        'Emergency Contacts',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          color: Color(0xffCCECEE),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15),
+                Container(
+                  width: 165,
+                  height: 180,
+                  decoration: BoxDecoration(
+                    color: Color(0xff095D7E),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/icons/Heart.svg',
+                        width: 52,
+                        height: 42,
+                      ),
+                      Text(
+                        'Common Injuries',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          color: Color(0xffCCECEE),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        );
+  }
+
+  Container injuryBox() {
+    return Container(
+          width: 325,
+          height: 125,
+          margin: EdgeInsets.only(left: 23, right: 23),
+          decoration: BoxDecoration(
+            color: Color(0xff095D7E),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'assets/icons/Log.svg',
+                width: 50,
+                height: 56,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(height: 30),
+                  Text(
+                    'Got Injured?',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xffCCECEE)
+                    ),
+                  ),
+                  Text(
+                    'Log your injury here',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xffCCECEE),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        );
   }
 
   PreferredSize appBar() {
     return PreferredSize(
-      preferredSize: Size.fromHeight(100),
+      preferredSize: Size.fromHeight(160),
       child: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(45)
+          )
+        ),
         title: Padding(
           padding: EdgeInsets.only(top: 12),
           child: Column(
@@ -49,7 +325,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xff095D7E),
         elevation: 0,
         leading: Padding(
-          padding: const EdgeInsets.only(top: 5),
+          padding: const EdgeInsets.only(top: 10, left: 10),
           child: SvgPicture.asset(
             'assets/icons/profile.svg',
             width: 64,
@@ -67,7 +343,7 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.only(right: 15),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.transparent,
                 shape: BoxShape.circle,
               ),
               child: SvgPicture.asset(
@@ -78,7 +354,52 @@ class _HomePageState extends State<HomePage> {
             )
           )
         ],
-      )
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(60),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+            child: Container(
+              height: 46,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: EdgeInsets.all(10),
+                  hintText: 'Search for injuries',
+                  hintStyle: TextStyle(
+                    color: Color(0xffADADAD),
+                    fontSize: 16,
+                  ),
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: SvgPicture.asset('assets/icons/search.svg'),
+                  ),
+                  suffixIcon: Container(
+                    margin: EdgeInsets.all(10),
+                    width: 41,
+                    height: 41,
+                    decoration: BoxDecoration(
+                      color: Color(0xffD9D9D9),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: SvgPicture.asset('assets/icons/mic.svg'),
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
