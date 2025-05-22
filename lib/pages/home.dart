@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int myIndex = 2;
+  int myIndex = 1;
 
   @override 
   Widget build(BuildContext context) {
@@ -61,8 +61,10 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/Customer Care.svg',
                     width: 30,
                     height: 24,
-                    // ignore: deprecated_member_use
-                    color: myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E)
+                    colorFilter: ColorFilter.mode(
+                      myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E), 
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
               ),
@@ -81,7 +83,10 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/Home.svg',
                     width: 30,
                     height: 24,
-                    color: myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E)
+                    colorFilter: ColorFilter.mode(
+                      myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E), 
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
               ),
@@ -100,7 +105,10 @@ class _HomePageState extends State<HomePage> {
                     'assets/icons/Settings.svg',
                     width: 30,
                     height: 24,
-                    color: myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E)
+                    colorFilter: ColorFilter.mode(
+                      myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E), 
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
               ),
@@ -325,7 +333,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xff095D7E),
         elevation: 0,
         leading: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 10),
+          padding: const EdgeInsets.only(top: 10, left: 20),
           child: SvgPicture.asset(
             'assets/icons/profile.svg',
             width: 64,
@@ -359,6 +367,7 @@ class _HomePageState extends State<HomePage> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
             child: Container(
+              margin: EdgeInsets.only(bottom: 18),
               height: 46,
               decoration: BoxDecoration(
                 color: Colors.white,
