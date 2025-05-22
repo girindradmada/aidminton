@@ -1,5 +1,8 @@
+import 'package:aidminton/pages/commonInjuries.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aidminton/pages/injuryLog.dart';
+import 'package:aidminton/pages/medicalExperts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -173,12 +176,18 @@ class _HomePageState extends State<HomePage> {
                         width: 52,
                         height: 42,
                       ),
-                      Text(
-                        'Medical Experts',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          color: Color(0xffCCECEE),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => const Experts()),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Text('Medical Experts'),
+                          )
                         ),
                       )
                     ],
@@ -234,12 +243,18 @@ class _HomePageState extends State<HomePage> {
                         width: 52,
                         height: 42,
                       ),
-                      Text(
-                        'Common Injuries',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          color: Color(0xffCCECEE),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => const CommonInjuries()),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Text('Common Injuries'),
+                          )
                         ),
                       )
                     ],
@@ -272,7 +287,7 @@ class _HomePageState extends State<HomePage> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
                   Text(
                     'Got Injured?',
                     style: TextStyle(
@@ -281,16 +296,18 @@ class _HomePageState extends State<HomePage> {
                       color: Color(0xffCCECEE)
                     ),
                   ),
-                  Text(
-                    'Log your injury here',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xffCCECEE),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => const InjuryLog()),
+                      );
+                    },
+                    child: Text(
+                      'Log your injury here'
                     ),
                   )
                 ],
-              )
+              ),
             ],
           ),
         );
