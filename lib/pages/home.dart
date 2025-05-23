@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/pages/injuryLog.dart';
 import 'package:aidminton/pages/medicalExperts.dart';
+import 'package:aidminton/pages/settings.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  @override 
+  @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   int myIndex = 1;
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: navigationBar(),
@@ -52,71 +53,71 @@ class _HomePageState extends State<HomePage> {
           },
           items: [
             BottomNavigationBarItem(
-              icon: Container(
-                width: 43, 
-                height: 43, 
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: myIndex == 0 ? Color(0xff095D7E) : Colors.transparent
-                ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/icons/Customer Care.svg',
-                    width: 30,
-                    height: 24,
-                    colorFilter: ColorFilter.mode(
-                      myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E), 
-                      BlendMode.srcIn,
+                icon: Container(
+                  width: 43,
+                  height: 43,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: myIndex == 0
+                          ? Color(0xff095D7E)
+                          : Colors.transparent),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      'assets/icons/Customer Care.svg',
+                      width: 30,
+                      height: 24,
+                      colorFilter: ColorFilter.mode(
+                        myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              label: 'Customer Care'
-            ),
+                label: 'Customer Care'),
             BottomNavigationBarItem(
-              icon: Container(
-                width: 43, 
-                height: 43, 
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: myIndex == 1 ? Color(0xff095D7E) : Colors.transparent
-                ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/icons/Home.svg',
-                    width: 30,
-                    height: 24,
-                    colorFilter: ColorFilter.mode(
-                      myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E), 
-                      BlendMode.srcIn,
+                icon: Container(
+                  width: 43,
+                  height: 43,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: myIndex == 1
+                          ? Color(0xff095D7E)
+                          : Colors.transparent),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      'assets/icons/Home.svg',
+                      width: 30,
+                      height: 24,
+                      colorFilter: ColorFilter.mode(
+                        myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              label: 'Home'
-            ),
+                label: 'Home'),
             BottomNavigationBarItem(
-              icon: Container(
-                width: 43, 
-                height: 43, 
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: myIndex == 2 ? Color(0xff095D7E) : Colors.transparent
-                ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/icons/Settings.svg',
-                    width: 30,
-                    height: 24,
-                    colorFilter: ColorFilter.mode(
-                      myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E), 
-                      BlendMode.srcIn,
+                icon: Container(
+                  width: 43,
+                  height: 43,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: myIndex == 2
+                          ? Color(0xff095D7E)
+                          : Colors.transparent),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      'assets/icons/Settings.svg',
+                      width: 30,
+                      height: 24,
+                      colorFilter: ColorFilter.mode(
+                        myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              label: 'Settings'
-            ),
+                label: 'Settings'),
           ],
         ),
       ),
@@ -125,192 +126,199 @@ class _HomePageState extends State<HomePage> {
 
   Row mainMenus() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 165,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    color: Color(0xff095D7E),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/P3K logo.svg',
-                        width: 52,
-                        height: 42,
-                      ),
-                      Text(
-                        'First Aid Guides',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          color: Color(0xffCCECEE),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  width: 165,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    color: Color(0xff095D7E),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/Doctor.svg',
-                        width: 52,
-                        height: 42,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context, MaterialPageRoute(builder: (context) => const Experts()),
-                            );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: Text('Medical Experts'),
-                          )
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 165,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    color: Color(0xff095D7E),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/Contacts.svg',
-                        width: 52,
-                        height: 42,
-                      ),
-                      Text(
-                        'Emergency Contacts',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          color: Color(0xffCCECEE),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  width: 165,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    color: Color(0xff095D7E),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/Heart.svg',
-                        width: 52,
-                        height: 42,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context, MaterialPageRoute(builder: (context) => const CommonInjuries()),
-                            );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: Text('Common Injuries'),
-                          )
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            )
-          ],
-        );
-  }
-
-  Container injuryBox() {
-    return Container(
-          width: 325,
-          height: 125,
-          margin: EdgeInsets.only(left: 23, right: 23),
-          decoration: BoxDecoration(
-            color: Color(0xff095D7E),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/icons/Log.svg',
-                width: 50,
-                height: 56,
+            Container(
+              width: 165,
+              height: 180,
+              decoration: BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(30),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 20),
-                  Text(
-                    'Got Injured?',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xffCCECEE)
-                    ),
+                  SvgPicture.asset(
+                    'assets/icons/P3K logo.svg',
+                    width: 52,
+                    height: 42,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => const InjuryLog()),
-                      );
-                    },
-                    child: Text(
-                      'Log your injury here'
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Settings()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Text('First Aid Guide'),
+                        )),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: 165,
+              height: 180,
+              decoration: BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    'assets/icons/Doctor.svg',
+                    width: 52,
+                    height: 42,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Experts()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Text('Medical Experts'),
+                        )),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 165,
+              height: 180,
+              decoration: BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    'assets/icons/Contacts.svg',
+                    width: 52,
+                    height: 42,
+                  ),
+                  Text(
+                    'Emergency Contacts',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                      color: Color(0xffCCECEE),
                     ),
                   )
                 ],
               ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              width: 165,
+              height: 180,
+              decoration: BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    'assets/icons/Heart.svg',
+                    width: 52,
+                    height: 42,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CommonInjuries()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Text('Common Injuries'),
+                        )),
+                  )
+                ],
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Container injuryBox() {
+    return Container(
+      width: 325,
+      height: 125,
+      margin: EdgeInsets.only(left: 23, right: 23),
+      decoration: BoxDecoration(
+        color: Color(0xff095D7E),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            'assets/icons/Log.svg',
+            width: 50,
+            height: 56,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Text(
+                'Got Injured?',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xffCCECEE)),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const InjuryLog()),
+                  );
+                },
+                child: Text('Log your injury here'),
+              )
             ],
           ),
-        );
+        ],
+      ),
+    );
   }
 
   PreferredSize appBar() {
@@ -318,10 +326,7 @@ class _HomePageState extends State<HomePage> {
       preferredSize: Size.fromHeight(160),
       child: AppBar(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(45)
-          )
-        ),
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(45))),
         title: Padding(
           padding: EdgeInsets.only(top: 12),
           child: Column(
@@ -331,11 +336,10 @@ class _HomePageState extends State<HomePage> {
               Text(
                 'Hello,',
                 style: TextStyle(
-                  color: Color(0xffF1F9FF),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w100
-                ),
-              ), 
+                    color: Color(0xffF1F9FF),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w100),
+              ),
               Text(
                 'Asep!',
                 style: TextStyle(
@@ -356,28 +360,25 @@ class _HomePageState extends State<HomePage> {
             width: 64,
             height: 64,
           ),
-        ), 
+        ),
         actions: [
           GestureDetector(
-            onTap: () {
-
-            },
-            child: Container(
-              width: 38,
-              height: 38,
-              margin: EdgeInsets.only(right: 15),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: SvgPicture.asset(
-                'assets/icons/Notification.svg',
-                width: 30,
-                height: 30,
-              ),
-            )
-          )
+              onTap: () {},
+              child: Container(
+                width: 38,
+                height: 38,
+                margin: EdgeInsets.only(right: 15),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                  'assets/icons/Notification.svg',
+                  width: 30,
+                  height: 30,
+                ),
+              ))
         ],
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(60),
