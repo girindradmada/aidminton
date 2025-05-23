@@ -1,6 +1,6 @@
+import 'package:aidminton/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aidminton/pages/home.dart';
 import 'package:aidminton/models/medis.dart';
 
 class Experts extends StatefulWidget {
@@ -63,10 +63,10 @@ class _ExpertsState extends State<Experts> {
                             color: Colors.white
                           ),
                           child: Center(
-                            child: SvgPicture.asset(
+                            child: Image.asset(
                               docs[index].docPhoto,
-                              width: 50,
-                              height: 50
+                              width: 100,
+                              height: 100
                             ),
                           ),
                         ),
@@ -74,7 +74,10 @@ class _ExpertsState extends State<Experts> {
                       Container(
                         height: 121,
                         width: 264,
-                        decoration: BoxDecoration(color: Colors.white),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15)
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,7 +173,7 @@ class _ExpertsState extends State<Experts> {
           child: GestureDetector(
             onTap: () {
               Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const HomePage())
+                context, MaterialPageRoute(builder: (context) => const MainPage())
               );
             },
             child: SvgPicture.asset(

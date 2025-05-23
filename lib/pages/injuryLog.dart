@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aidminton/pages/home.dart';
 import 'package:aidminton/models/log.dart';
+import 'package:aidminton/main.dart';
 
 class InjuryLog extends StatefulWidget {
   const InjuryLog({super.key});
@@ -141,7 +141,7 @@ class _InjuryLogState extends State<InjuryLog> {
           child: GestureDetector(
             onTap: () {
               Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const HomePage())
+                context, MaterialPageRoute(builder: (context) => const MainPage())
               );
             },
             child: SvgPicture.asset(
