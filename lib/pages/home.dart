@@ -13,12 +13,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int myIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: navigationBar(),
       appBar: appBar(),
       body: ListView(
         children: [
@@ -27,99 +25,6 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: 15),
           mainMenus(),
         ],
-      ),
-    );
-  }
-
-  Padding navigationBar() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        decoration: BoxDecoration(
-          color: Color(0xffCCECEE),
-          borderRadius: BorderRadius.circular(45),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: myIndex,
-          backgroundColor: Colors.transparent,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xffE2FCD6),
-          unselectedItemColor: Color(0xff095D7E),
-          onTap: (index) {
-            setState(() {
-              myIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-                icon: Container(
-                  width: 43,
-                  height: 43,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: myIndex == 0
-                          ? Color(0xff095D7E)
-                          : Colors.transparent),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/Customer Care.svg',
-                      width: 30,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-                label: 'Customer Care'),
-            BottomNavigationBarItem(
-                icon: Container(
-                  width: 43,
-                  height: 43,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: myIndex == 1
-                          ? Color(0xff095D7E)
-                          : Colors.transparent),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/Home.svg',
-                      width: 30,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-                label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Container(
-                  width: 43,
-                  height: 43,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: myIndex == 2
-                          ? Color(0xff095D7E)
-                          : Colors.transparent),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/Settings.svg',
-                      width: 30,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-                label: 'Settings'),
-          ],
-        ),
       ),
     );
   }
@@ -152,6 +57,10 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff095D7E),
+                          shadowColor: Colors.transparent
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -159,10 +68,16 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context) => const Settings()),
                           );
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text('First Aid Guide'),
-                        )),
+                        child: Text(
+                          'First Aid Guides',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffCCECEE),
+                          ),
+                          textAlign: TextAlign.center,
+                        )
+                      ),
                   )
                 ],
               ),
@@ -187,6 +102,10 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff095D7E),
+                          shadowColor: Colors.transparent
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -195,8 +114,16 @@ class _HomePageState extends State<HomePage> {
                           );
                         },
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text('Medical Experts'),
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          child: Text(
+                            'Medic Experts',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xffCCECEE)
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         )),
                   )
                 ],
@@ -224,12 +151,16 @@ class _HomePageState extends State<HomePage> {
                     width: 52,
                     height: 42,
                   ),
-                  Text(
-                    'Emergency Contacts',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                      color: Color(0xffCCECEE),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: Text(
+                      'Emergency Contacts',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300,
+                        color: Color(0xffCCECEE),
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   )
                 ],
@@ -255,6 +186,10 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff095D7E),
+                          shadowColor: Colors.transparent
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -263,8 +198,16 @@ class _HomePageState extends State<HomePage> {
                           );
                         },
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Text('Common Injuries'),
+                          padding: const EdgeInsets.only(left: 3, right: 2),
+                          child: Text(
+                            'Common Injuries',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xffCCECEE)
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         )),
                   )
                 ],
@@ -280,7 +223,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       width: 325,
       height: 125,
-      margin: EdgeInsets.only(left: 23, right: 23),
+      margin: EdgeInsets.only(left: 25, right: 25),
       decoration: BoxDecoration(
         color: Color(0xff095D7E),
         borderRadius: BorderRadius.circular(30),
@@ -306,13 +249,24 @@ class _HomePageState extends State<HomePage> {
                     color: Color(0xffCCECEE)),
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xff095D7E),
+                          shadowColor: Colors.transparent
+                        ),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const InjuryLog()),
                   );
                 },
-                child: Text('Log your injury here'),
+                child: Text(
+                  'Log your injury here',
+                  style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xffCCECEE)
+                            ),
+                ),
               )
             ],
           ),
@@ -325,71 +279,82 @@ class _HomePageState extends State<HomePage> {
     return PreferredSize(
       preferredSize: Size.fromHeight(160),
       child: AppBar(
+        toolbarHeight: 100,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(45))),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(45)),
+        ),
         title: Padding(
-          padding: EdgeInsets.only(top: 12),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          padding: EdgeInsets.only(top: 12, left: 10, right: 10),
+          child: Row(
             children: [
-              Text(
-                'Hello,',
-                style: TextStyle(
-                    color: Color(0xffF1F9FF),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w100),
-              ),
-              Text(
-                'Asep!',
-                style: TextStyle(
-                  color: Color(0XffF1F9FF),
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+              // Profile Image
+              ClipRRect(
+                borderRadius: BorderRadius.circular(32),
+                child: Image.asset(
+                  'assets/icons/pfp.png',
+                  width: 64,
+                  height: 64,
+                  fit: BoxFit.cover,
                 ),
-              )
+              ),
+              SizedBox(width: 12),
+              // Text Greeting
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hello,',
+                    style: TextStyle(
+                      color: Color(0xffF1F9FF),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w100,
+                    ),
+                  ),
+                  Text(
+                    'Asep!',
+                    style: TextStyle(
+                      color: Color(0xffF1F9FF),
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              // Notification Button
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: 38,
+                  height: 38,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: SvgPicture.asset(
+                    'assets/icons/Notification.svg',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
         backgroundColor: Color(0xff095D7E),
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 20),
-          child: SvgPicture.asset(
-            'assets/icons/profile.svg',
-            width: 64,
-            height: 64,
-          ),
-        ),
-        actions: [
-          GestureDetector(
-              onTap: () {},
-              child: Container(
-                width: 38,
-                height: 38,
-                margin: EdgeInsets.only(right: 15),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  shape: BoxShape.circle,
-                ),
-                child: SvgPicture.asset(
-                  'assets/icons/Notification.svg',
-                  width: 30,
-                  height: 30,
-                ),
-              ))
-        ],
+        automaticallyImplyLeading: false, // Prevent back button space
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(60),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
             child: Container(
-              margin: EdgeInsets.only(bottom: 18),
+              margin: EdgeInsets.only(bottom: 10),
               height: 46,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(60),
               ),
               child: TextField(
                 decoration: InputDecoration(
@@ -406,7 +371,6 @@ class _HomePageState extends State<HomePage> {
                     child: SvgPicture.asset('assets/icons/search.svg'),
                   ),
                   suffixIcon: Container(
-                    margin: EdgeInsets.all(10),
                     width: 41,
                     height: 41,
                     decoration: BoxDecoration(
@@ -418,7 +382,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(60),
                     borderSide: BorderSide.none,
                   ),
                 ),

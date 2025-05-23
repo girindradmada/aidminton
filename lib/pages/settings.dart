@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aidminton/pages/home.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -43,22 +42,6 @@ class _SettingsState extends State<Settings> {
             ),
             backgroundColor: Color(0xff095D7E),
             elevation: 0,
-            leading: Padding(
-              padding: const EdgeInsets.only(top: 15, left: 20),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
-                },
-                child: SvgPicture.asset(
-                  'assets/icons/arrow_back.svg',
-                  width: 24,
-                  height: 24,
-                ),
-              ),
-            ),
             actions: [
               GestureDetector(
                   onTap: () {},
