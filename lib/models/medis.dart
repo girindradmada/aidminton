@@ -15,15 +15,15 @@ class DocModel {
     List<DocModel> docs = [];
 
     docs.add(
-      DocModel(doctorName: 'Dr.Asep Hidayat, Sp.JP', specialist: 'Cardiologist', hospital: 'RS Sardjito', docPhoto: 'assets/icons/profile.svg')
+      DocModel(doctorName: 'Dr.Asep Hidayat, Sp.JP', specialist: 'Cardiologist', hospital: 'RS Sardjito', docPhoto: 'assets/icons/asep.png')
     );
 
     docs.add(
-      DocModel(doctorName: 'Dr.Vincent Dimanasye, Sp.OT', specialist: 'Orthopedist', hospital: 'RS MMC', docPhoto: 'assets/icons/profile.svg')
+      DocModel(doctorName: 'Dr.Vincent Dimanasye, Sp.OT', specialist: 'Orthopedist', hospital: 'RS MMC', docPhoto: 'assets/icons/vincent.png')
     );
 
     docs.add(
-      DocModel(doctorName: 'Dr.Floryn Noflicker, Sp.PD-KHOM', specialist: 'Hermatologist', hospital: 'L.O.D Hospital', docPhoto: 'assets/icons/profile.svg')
+      DocModel(doctorName: 'Dr.Floryn Noflicker, Sp.PD-KHOM', specialist: 'Hermatologist', hospital: 'L.O.D Hospital', docPhoto: 'assets/icons/floryn.png')
     );
 
     return docs;
