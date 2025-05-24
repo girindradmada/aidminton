@@ -188,10 +188,10 @@ class _CommonInjuriesState extends State<CommonInjuries> {
                 color: Colors.transparent,
                 shape: BoxShape.circle,
               ),
-              child: SvgPicture.asset(
-                'assets/icons/profile.svg',
+              child: Image.asset(
+                'assets/icons/pfp.png',
                 width: 64,
-                height: 64,
+                height: 64
               ),
             )
           )
