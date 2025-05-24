@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/pages/injuryLog.dart';
 import 'package:aidminton/pages/medicalExperts.dart';
 import 'package:aidminton/pages/settings.dart';
+import 'package:aidminton/pages/editProfile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -288,13 +289,23 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             children: [
               // Profile Image
-              ClipRRect(
-                borderRadius: BorderRadius.circular(32),
-                child: Image.asset(
-                  'assets/icons/pfp.png',
-                  width: 64,
-                  height: 64,
-                  fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EditProfile()
+                    ),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(32),
+                  child: Image.asset(
+                    'assets/icons/pfp.png',
+                    width: 64,
+                    height: 64,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               SizedBox(width: 12),
