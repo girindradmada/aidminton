@@ -11,13 +11,92 @@ class MainEntryPage extends StatefulWidget {
 class _MainEntryState extends State<MainEntryPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        appBar: appBar(),
+        body: ListView(
+          children: [
+            SizedBox(
+              height: 40,
+            ),
+            Image.asset(
+              'assets/icons/Logo.png',
+            ),
+            SizedBox(height: 30),
+            LoginBox(),
+            SizedBox(
+              height: 20,
+            ),
+            SignUpBox(),
+            SizedBox(
+              height: 30,
+            ),
+            Forgot_AccountBox(),
+          ],
+        ));
+  }
+
+  Center Forgot_AccountBox() {
+    return Center(
+            child: Text(
+            "Forgot Account?",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+                  color: Color(0xff095D7E),
+            ),
+            )
+          );
+  }
+
+  Container LoginBox() {
+    return Container(
+            width: 363,
+            height: 69,
+            margin: EdgeInsets.only(left: 20, right: 20),
+            decoration:BoxDecoration(
+              color: Color(0xff095D7E),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(
+                "Login",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xffF1F9FF),
+                ),
+              )
+            ),
+          );
+  }
+
+  Container SignUpBox() {
+    return Container(
+            width: 363,
+            height: 69,
+            margin: EdgeInsets.only(left: 20, right: 20),
+            decoration:BoxDecoration(
+              color: Color(0xffCCECEE),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(
+                "Sign Up",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff095D7E),
+                ),
+              )
+            ),
+          );
   }
 
   PreferredSize appBar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(100),
       child: AppBar(
+        backgroundColor: Color(0xff095D7E),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(45))),
         actions: [
@@ -29,8 +108,9 @@ class _MainEntryState extends State<MainEntryPage> {
                   margin: EdgeInsets.only(right: 15),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(40)),
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(40),
+                      border: Border.all(color: Color(0xffCCECEE))),
                   child: Center(
                       child: Text(
                     "English",
@@ -47,14 +127,12 @@ class _MainEntryState extends State<MainEntryPage> {
                   margin: EdgeInsets.only(right: 15),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Color(0xffCCECEE))),
                   child: Center(
                     child: SvgPicture.asset(
                       'assets/icons/QuestionMark.svg',
-                      width: 44,
-                      height: 44,
                     ),
                   )))
         ],
