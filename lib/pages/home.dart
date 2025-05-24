@@ -5,6 +5,7 @@ import 'package:aidminton/pages/injuryLog.dart';
 import 'package:aidminton/pages/medicalExperts.dart';
 import 'package:aidminton/pages/settings.dart';
 import 'package:aidminton/pages/editProfile.dart';
+import 'package:aidminton/pages/mainentry.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +59,8 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff095D7E),
-                          shadowColor: Colors.transparent
-                        ),
+                            backgroundColor: Color(0xff095D7E),
+                            shadowColor: Colors.transparent),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -77,8 +76,7 @@ class _HomePageState extends State<HomePage> {
                             color: Color(0xffCCECEE),
                           ),
                           textAlign: TextAlign.center,
-                        )
-                      ),
+                        )),
                   )
                 ],
               ),
@@ -103,10 +101,9 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff095D7E),
-                          shadowColor: Colors.transparent
-                        ),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xff095D7E),
+                            shadowColor: Colors.transparent),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -119,10 +116,9 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             'Medic Experts',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xffCCECEE)
-                            ),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xffCCECEE)),
                             textAlign: TextAlign.center,
                           ),
                         )),
@@ -188,9 +184,8 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff095D7E),
-                          shadowColor: Colors.transparent
-                        ),
+                            backgroundColor: Color(0xff095D7E),
+                            shadowColor: Colors.transparent),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -203,10 +198,9 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             'Common Injuries',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xffCCECEE)
-                            ),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xffCCECEE)),
                             textAlign: TextAlign.center,
                           ),
                         )),
@@ -251,9 +245,8 @@ class _HomePageState extends State<HomePage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xff095D7E),
-                          shadowColor: Colors.transparent
-                        ),
+                    backgroundColor: Color(0xff095D7E),
+                    shadowColor: Colors.transparent),
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -263,10 +256,9 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'Log your injury here',
                   style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xffCCECEE)
-                            ),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xffCCECEE)),
                 ),
               )
             ],
@@ -294,8 +286,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const EditProfile()
-                    ),
+                        builder: (context) => const EditProfile()),
                   );
                 },
                 child: ClipRRect(
@@ -334,7 +325,13 @@ class _HomePageState extends State<HomePage> {
               Spacer(),
               // Notification Button
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MainEntryPage()),
+                  );
+                },
                 child: Container(
                   width: 38,
                   height: 38,
