@@ -54,11 +54,11 @@ class _SettingsState extends State<Settings> {
                         color: Colors.transparent,
                         shape: BoxShape.circle,
                       ),
-                      child: SvgPicture.asset(
-                        'assets/icons/profile.svg',
-                        width: 64,
-                        height: 64,
-                      )))
+                      child: Image.asset(
+                      'assets/icons/pfp.png',
+                      width: 64,
+                      height: 64
+                    ),))
             ]));
   }
 }
