@@ -197,10 +197,20 @@ class _ExpertsState extends State<Experts> {
                 color: Colors.transparent,
                 shape: BoxShape.circle,
               ),
-              child: SvgPicture.asset(
-                'assets/icons/profile.svg',
-                width: 64,
-                height: 64,
+              child: Container(
+                width: 128,
+                height: 128,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white
+                ),
+                child: Center(
+                  child: Image.asset(
+                    'assets/icons/pfp.png',
+                    width: 64,
+                    height: 64
+                  ),
+                ),
               ),
             )
           )
