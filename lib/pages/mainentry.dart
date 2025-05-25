@@ -1,4 +1,5 @@
 import 'package:aidminton/pages/signup.dart';
+import 'package:aidminton/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/pages/forgotpassword.dart';
@@ -59,26 +60,34 @@ class _MainEntryState extends State<MainEntryPage> {
     );
   }
 
-  Container LoginBox() {
-    return Container(
-            width: 363,
-            height: 69,
-            margin: EdgeInsets.only(left: 20, right: 20),
-            decoration:BoxDecoration(
-              color: Color(0xff095D7E),
-              borderRadius: BorderRadius.circular(10),
+  Widget LoginBox() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context, 
+          MaterialPageRoute(builder: (context) => const LoginPage())
+        );
+      },
+      child: Container(
+              width: 363,
+              height: 69,
+              margin: EdgeInsets.only(left: 20, right: 20),
+              decoration:BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xffF1F9FF),
+                  ),
+                )
+              ),
             ),
-            child: Center(
-              child: Text(
-                "Login",
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffF1F9FF),
-                ),
-              )
-            ),
-          );
+    );
   }
 
   Widget SignUpBox() {
