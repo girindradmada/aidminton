@@ -53,66 +53,6 @@ class _SettingsState extends State<Settings> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left:22),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/icons/Notifications.png'),
-                      SizedBox(width: 23,),
-                      Text(
-                        "Notifications",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff1B365D),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right:40),
-                  child: Image.asset('assets/icons/forwardArrow.png'),
-                ),
-              ],
-            ),
-            SizedBox(height:13),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left:22),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/icons/languageGlobe.png'),
-                      SizedBox(width: 23,),
-                      Text(
-                        "Languages",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff1B365D),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right:40),
-                  child: Image.asset('assets/icons/forwardArrow.png'),
-                ),
-              ],
-            ),
-            SizedBox(height:13),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
                   padding: const EdgeInsets.only(left:25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
