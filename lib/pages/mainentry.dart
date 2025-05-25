@@ -1,5 +1,7 @@
+import 'package:aidminton/pages/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:aidminton/pages/forgotpassword.dart';
 
 class MainEntryPage extends StatefulWidget {
   const MainEntryPage({super.key});
@@ -35,17 +37,26 @@ class _MainEntryState extends State<MainEntryPage> {
         ));
   }
 
-  Center Forgot_AccountBox() {
-    return Center(
-            child: Text(
-            "Forgot Account?",
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-                  color: Color(0xff095D7E),
-            ),
-            )
-          );
+  Widget Forgot_AccountBox() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, 
+        MaterialPageRoute(builder: 
+        (context) => const Forgotpassword(),
+        )
+        );
+      },
+      child: Center(
+        child: Text(
+          "Forgot Account?",
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Color(0xff095D7E),
+          ),
+        )
+      )
+    );
   }
 
   Container LoginBox() {
@@ -70,26 +81,35 @@ class _MainEntryState extends State<MainEntryPage> {
           );
   }
 
-  Container SignUpBox() {
-    return Container(
-            width: 363,
-            height: 69,
-            margin: EdgeInsets.only(left: 20, right: 20),
-            decoration:BoxDecoration(
-              color: Color(0xffCCECEE),
-              borderRadius: BorderRadius.circular(10),
+  Widget SignUpBox() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, 
+        MaterialPageRoute(builder: 
+        (context) => const Signup(),
+        )
+        );
+      },
+      child: Container(
+              width: 363,
+              height: 69,
+              margin: EdgeInsets.only(left: 20, right: 20),
+              decoration:BoxDecoration(
+                color: Color(0xffCCECEE),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff095D7E),
+                  ),
+                )
+              ),
             ),
-            child: Center(
-              child: Text(
-                "Sign Up",
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff095D7E),
-                ),
-              )
-            ),
-          );
+    );
   }
 
   PreferredSize appBar() {
