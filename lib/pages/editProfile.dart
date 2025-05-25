@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aidminton/main.dart';
 
 class EditProfile extends StatefulWidget{
   const EditProfile({super.key});
@@ -106,8 +105,8 @@ class _EditProfileState extends State<EditProfile> {
                   width: 345, 
                   height: 61,
                   decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
-                    borderRadius: BorderRadius.circular(30)
+                    color: Color(0xffD9D9D9).withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                 )
               ],
@@ -128,7 +127,7 @@ class _EditProfileState extends State<EditProfile> {
                   width: 345, 
                   height: 61,
                   decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
+                    color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
                 )
@@ -150,7 +149,7 @@ class _EditProfileState extends State<EditProfile> {
                   width: 345, 
                   height: 61,
                   decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
+                    color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
                 )
@@ -172,7 +171,7 @@ class _EditProfileState extends State<EditProfile> {
                   width: 345, 
                   height: 61,
                   decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
+                    color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
                 )
@@ -194,7 +193,7 @@ class _EditProfileState extends State<EditProfile> {
                   width: 345, 
                   height: 61,
                   decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9),
+                    color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
                 )
@@ -211,12 +210,7 @@ class _EditProfileState extends State<EditProfile> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MainPage()
-                  ),
-                );
+                Navigator.pop(context);
               },
               child: SvgPicture.asset(
                 'assets/icons/arrow_back.svg',

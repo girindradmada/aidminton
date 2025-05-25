@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/pages/injuryLog.dart';
 import 'package:aidminton/pages/medicalExperts.dart';
-import 'package:aidminton/pages/settings.dart';
-import 'package:aidminton/pages/editProfile.dart';
 import 'package:aidminton/pages/mainentry.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,11 +60,7 @@ class _HomePageState extends State<HomePage> {
                             backgroundColor: Color(0xff095D7E),
                             shadowColor: Colors.transparent),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Settings()),
-                          );
+                          
                         },
                         child: Text(
                           'First Aid Guides',
@@ -150,14 +144,26 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
-                    child: Text(
-                      'Emergency Contacts',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        color: Color(0xffCCECEE),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff095D7E),
+                        shadowColor: Colors.transparent
                       ),
-                      textAlign: TextAlign.center,
+                      onPressed: () {
+                       
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 1, right: 2),
+                        child: Text(
+                          'Emergency Contacts',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffCCECEE)
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      )
                     ),
                   )
                 ],
@@ -281,22 +287,13 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             children: [
               // Profile Image
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const EditProfile()),
-                  );
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(32),
-                  child: Image.asset(
-                    'assets/icons/pfp.png',
-                    width: 64,
-                    height: 64,
-                    fit: BoxFit.cover,
-                  ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(32),
+                child: Image.asset(
+                  'assets/icons/pfp.png',
+                  width: 64,
+                  height: 64,
+                  fit: BoxFit.cover,
                 ),
               ),
               SizedBox(width: 12),
