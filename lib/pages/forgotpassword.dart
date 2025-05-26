@@ -105,7 +105,8 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                 
                     ),
                   )
-                )
+                ),
+                SizedBox(width:20),
               ],
             )
           ],

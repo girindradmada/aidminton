@@ -1,4 +1,5 @@
 import 'package:aidminton/pages/customerService.dart';
+import 'package:aidminton/pages/mainentry.dart';
 import 'package:aidminton/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:aidminton/pages/home.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Gilroy'
       ),
-      home: MainPage(),
+      home: MainEntryPage(),
     );
   }
 }
