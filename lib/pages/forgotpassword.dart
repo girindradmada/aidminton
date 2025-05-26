@@ -143,14 +143,14 @@ class _ForgotpasswordState extends State<Forgotpassword> {
         );
   }
 
-  Row topBar(BuildContext context) {
-    return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left:40),
-              child: GestureDetector(
+  Padding topBar(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 50),
+      child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -160,10 +160,7 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                   height: 24,
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right:90,),
-              child: Text(
+              Text(
                 'Forgot Password',
                 style: TextStyle(
                   fontSize: 32,
@@ -171,8 +168,8 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                   color: Color(0xffF1F9FF),
                 ),
               ),
-            ),
-          ],
-        );
+            ],
+          ),
+    );
   }
 }
