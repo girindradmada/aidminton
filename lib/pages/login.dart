@@ -20,29 +20,33 @@ class _LoginPageState extends State<LoginPage> {
             bottom: 140,
             child: Padding(
             padding: const EdgeInsets.only(left: 150,right: 150),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xff33B249),
-              ),
-              onPressed: () {
-            
-              },
-              child: Text(
-                "Login",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffFFFFFF)
+            child: ButtonTheme(
+              minWidth: 150,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff33B249),
                 ),
-                textAlign: TextAlign.center,
-              ),
+                onPressed: () {
+              
+                },
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xffFFFFFF)
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              )
             ),
           ),
           ),
           Positioned(
             bottom: 100,
             child: Padding(
-              padding: const EdgeInsets.only(left: 80,right: 80),
+              padding: const EdgeInsets.only(left: 62, right: 60),
               child: Text(
                 'Dont have an account? Sign Up',
                 style: TextStyle(

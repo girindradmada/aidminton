@@ -1,3 +1,5 @@
+import 'package:aidminton/pages/injuryDetails.dart';
+import 'package:aidminton/pages/newInjury.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/models/log.dart';
@@ -26,6 +28,44 @@ class _InjuryLogState extends State<InjuryLog> {
         children: [
           SizedBox(height: 15,),
           listLog(),
+          SizedBox(height: 20),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewInjury()
+                ),
+              ); 
+            },
+            child: Container(
+              width: 350, 
+              height: 125,
+              margin: EdgeInsets.only(left: 30, right: 30),
+              decoration: BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(30)
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/icons/plusSign.png'
+                  ),
+                  Text(
+                    'Add New',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Color(0xffCCECEE),
+                      fontWeight: FontWeight.w600
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 20,)
         ],
       ),
     );
@@ -94,10 +134,18 @@ class _InjuryLogState extends State<InjuryLog> {
                                 ),
                               ),
                               SizedBox(width: 10),
-                              SvgPicture.asset(
-                                'assets/icons/play_arrow_filled.svg',
-                                width: 20,
-                                height: 20,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context, 
+                                    MaterialPageRoute(builder: (context) => const InjuryDetails())
+                                  );
+                                },
+                                child: SvgPicture.asset(
+                                  'assets/icons/play_arrow_filled.svg',
+                                  width: 20,
+                                  height: 20,
+                                ),
                               )
                             ],
                           )
