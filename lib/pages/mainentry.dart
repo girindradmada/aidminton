@@ -125,6 +125,7 @@ class _MainEntryState extends State<MainEntryPage> {
     return PreferredSize(
       preferredSize: Size.fromHeight(100),
       child: AppBar(
+        leading: SizedBox(),
         backgroundColor: Color(0xff095D7E),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(45))),

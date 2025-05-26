@@ -1,3 +1,6 @@
+import 'package:aidminton/main.dart';
+import 'package:aidminton/pages/login.dart';
+import 'package:aidminton/pages/mainentry.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -29,26 +32,27 @@ class _SignupState extends State<Signup> {
               Text(
                 "Already have an account? ",
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffFFFFFF),
+                  color: Color(0xffB9D6E1),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600
                 ),
               ),
               GestureDetector(
                 onTap:() {
-                  
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
                 },
                 child: Text(
                   "Log In",
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xffFFFFFF),
+                  color: Color(0xffB9D6E1),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600
                   ),
                 ),
               )
             ],
-          )
+          ),
+          SizedBox(height: 50)
         ],
       )
     );
@@ -56,25 +60,35 @@ class _SignupState extends State<Signup> {
 
   Padding signInButton() {
     return Padding(
-          padding: const EdgeInsets.only(right: 145, left:145),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xff33B249),
-              shadowColor: Colors.transparent
-            ),
-            onPressed: () {
-          
-            },
-            child: Text(
-              "Sign Up",
-              style: TextStyle(
-                color: Color(0xffFFFFFF),
-                fontSize: 24,
-                fontWeight: FontWeight.w200
+              padding: const EdgeInsets.only(right: 120, left: 120),
+              child: SizedBox(
+              width: 150,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff14967F),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainPage()),
+                  );
+                },
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-          ),
-        );
+                          ),
+            );
   }
 
   Column signUpInfo() {
@@ -177,16 +191,16 @@ class _SignupState extends State<Signup> {
         );
   }
 
-  Row topBar(BuildContext context) {
-    return Row (
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left:40),
-              child: GestureDetector(
+  Padding topBar(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 85),
+      child: Row (
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MainEntryPage()));
                 },
                 child: SvgPicture.asset(
                   'assets/icons/arrow_back.svg',
@@ -194,10 +208,7 @@ class _SignupState extends State<Signup> {
                   height: 24,
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right:165),
-              child: Text(
+              Text(
                 'Sign Up',
                 style: TextStyle(
                   fontSize: 32,
@@ -205,8 +216,8 @@ class _SignupState extends State<Signup> {
                   color: Color(0xffF1F9FF),
                 ),
               ),
-            ),
-          ],
-        );
+            ],
+          ),
+    );
   }
 }
