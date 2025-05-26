@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/main.dart';
 import 'package:aidminton/models/common.dart';
+import 'package:aidminton/pages/templateCommonInjury.dart';
 
 class CommonInjuries extends StatefulWidget {
   const CommonInjuries({super.key});
@@ -97,36 +98,47 @@ class _CommonInjuriesState extends State<CommonInjuries> {
                 childAspectRatio: 170 / 160, // width / height
               ),
               itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  width: 170,
-                  height: 160,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: Colors.transparent,
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 3, // You had 10 — adjust as needed
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: 
+                        (context) => const Templatecommoninjury(),
+                      )
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                    width: 170,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.transparent,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 3, // You had 10 — adjust as needed
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        commons[index].injuryPhoto,
-                        width: 80,
-                        height: 80,
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        commons[index].commonName,
-                        style: TextStyle(
-                          color: Color(0xff1B365D),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          commons[index].injuryPhoto,
+                          width: 80,
+                          height: 80,
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 8),
+                        Text(
+                          commons[index].commonName,
+                          style: TextStyle(
+                            color: Color(0xff1B365D),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

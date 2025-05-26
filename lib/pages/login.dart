@@ -1,3 +1,6 @@
+import 'package:aidminton/main.dart';
+import 'package:aidminton/pages/mainentry.dart';
+import 'package:aidminton/pages/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,33 +19,30 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Color(0xff095D7E),
       body: Stack(
         children: [
-          Positioned(
-            bottom: 140,
-            child: Padding(
-            padding: const EdgeInsets.only(left: 150,right: 150),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xff33B249),
-              ),
-              onPressed: () {
-            
+          ListView(
+            children: [
+              SizedBox(height: 15),
+              topBar(context),
+              SizedBox(height: 25),
+              editColumn(),
+              SizedBox(height: 100),
+              loginButton(context),
+              SizedBox(height: 10,),
+              signUporNo(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding signUporNo() {
+    return Padding(
+            padding: const EdgeInsets.only(left: 62, right: 60),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Signup()));
               },
-              child: Text(
-                "Login",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffFFFFFF)
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-          ),
-          Positioned(
-            bottom: 100,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 80,right: 80),
               child: Text(
                 'Dont have an account? Sign Up',
                 style: TextStyle(
@@ -52,18 +52,40 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-          ),
-          ListView(
-            children: [
-              SizedBox(height: 15),
-              topBar(context),
-              SizedBox(height: 25),
-              editColumn(),
-            ],
-          ),
-        ],
-      ),
-    );
+          );
+  }
+
+  Padding loginButton(BuildContext context) {
+    return Padding(
+              padding: const EdgeInsets.only(right: 120, left: 120),
+              child: SizedBox(
+              width: 150,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff14967F),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainPage()),
+                  );
+                },
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+                          ),
+            );
   }
 
 
@@ -130,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MainEntryPage()));
                 },
                 child: SvgPicture.asset(
                   'assets/icons/arrow_back.svg',
