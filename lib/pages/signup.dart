@@ -5,13 +5,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Signup extends StatefulWidget{
-  const Signup({super.key});
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final TextEditingController phoneController;
+
+  const Signup({
+    super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.passwordController,
+    required this.phoneController,
+  });
 
   @override
   State<Signup> createState() => _SignupState();
 }
 
 class _SignupState extends State<Signup> {
+  TextEditingController emailEditingController = TextEditingController();
+  TextEditingController passwordEditingController = TextEditingController();
+  TextEditingController nameEditingController = TextEditingController();
+  
+  @override
+  void dispose() {
+    emailEditingController.dispose(); 
+    passwordEditingController.dispose();
+    nameEditingController.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,18 +61,21 @@ class _SignupState extends State<Signup> {
                 ),
               ),
               GestureDetector(
-                onTap:() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                onTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => LoginPage())
+                  ); // This goes BACK to the previous LoginPage
                 },
                 child: Text(
                   "Log In",
                   style: TextStyle(
-                  color: Color(0xffB9D6E1),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600
+                    color: Color(0xffB9D6E1),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-              )
+              ),
             ],
           ),
           SizedBox(height: 50)
@@ -72,10 +98,19 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MainPage()),
-                  );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainPage(
+                          name: widget.nameController.text.isNotEmpty
+                              ? widget.nameController.text
+                              : 'Guest',
+                          email: widget.emailController.text,
+                          password: widget.passwordController.text,
+                          phone: widget.phoneController.text,
+                        ),
+                      ),
+                    );
                 },
                 child: Text(
                   "Sign Up",
@@ -115,6 +150,16 @@ class _SignupState extends State<Signup> {
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30),
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: widget.nameController,
+                      decoration: InputDecoration(
+                        hintText: 'Insert Name',
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 )
               ]
             ),
@@ -137,6 +182,16 @@ class _SignupState extends State<Signup> {
                   decoration: BoxDecoration(
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: widget.emailController,
+                      decoration: InputDecoration(
+                        hintText: 'Insert Email',
+                        border: InputBorder.none,
+                      ),
+                    ),
                   ),
                 )
               ],
@@ -161,6 +216,16 @@ class _SignupState extends State<Signup> {
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: widget.passwordController,
+                      decoration: InputDecoration(
+                        hintText: 'Insert Password',
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -183,6 +248,16 @@ class _SignupState extends State<Signup> {
                   decoration: BoxDecoration(
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: widget.passwordController,
+                      decoration: InputDecoration(
+                        hintText: 'Insert Password',
+                        border: InputBorder.none,
+                      ),
+                    ),
                   ),
                 )
               ],

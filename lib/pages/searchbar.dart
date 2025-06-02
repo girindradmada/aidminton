@@ -363,9 +363,9 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
           padding: const EdgeInsets.only(top: 15, left: 20),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const MainPage())
-              );
+              // Navigator.push(
+              //   context, MaterialPageRoute(builder: (context) => const MainPage())
+              // );
             },
             child: SvgPicture.asset(
               'assets/icons/arrow_back.svg',
