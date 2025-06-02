@@ -38,37 +38,37 @@ class _NewInjuryState extends State<NewInjury> {
           SizedBox(height: 20),
           mainContentInjury(),
           SizedBox(height: 20),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 50),
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Color(0xff095D7E),
-              borderRadius: BorderRadius.circular(20)
-            ),
-            child: Center(
-              child: GestureDetector(
-                onTap: () {
-                  if (_selectedType.text.trim().isEmpty || selectedDateTime == null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Please enter injury name and date')),
-                    );
-                    return;
-                  }
+          GestureDetector(
+            onTap: () {
+              if (_selectedType.text.trim().isEmpty || selectedDateTime == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Please enter injury name and date')),
+                );
+                return;
+              }
 
-                  // ✅ Safe fallback
-                  final DateTime safeDate = selectedDateTime!;
+              // ✅ Safe fallback
+              final DateTime safeDate = selectedDateTime!;
 
-                  final newLog = LogModel(
-                    injuryName: _selectedType.text.trim(),
-                    logDate:
-                        '${safeDate.day.toString().padLeft(2, '0')}/${safeDate.month.toString().padLeft(2, '0')}/${safeDate.year}',
-                    priority: selectedSeverity,
-                    description: _descController.text,
-                  );
+              final newLog = LogModel(
+                injuryName: _selectedType.text.trim(),
+                logDate:
+                    '${safeDate.day.toString().padLeft(2, '0')}/${safeDate.month.toString().padLeft(2, '0')}/${safeDate.year}',
+                priority: selectedSeverity,
+                description: _descController.text,
+              );
 
-                  Navigator.pop(context, newLog);
-                },
+              Navigator.pop(context, newLog);
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Color(0xff095D7E),
+                borderRadius: BorderRadius.circular(20)
+              ),
+              child: Center(
                 child: Text(
                   'Confirm',
                   style: TextStyle(
@@ -273,7 +273,11 @@ class _NewInjuryState extends State<NewInjury> {
               Expanded(
                 child: TextField(
                   controller: _selectedType,
-                  style: TextStyle(color: Color(0xffF1F9FF)),
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Color(0xffCCECEE),
+                    fontWeight: FontWeight.w600
+                  ),
                   decoration: InputDecoration(
                     hintText: 'Injury Name',
                     hintStyle: TextStyle(

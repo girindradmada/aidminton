@@ -97,13 +97,14 @@ class _CommonInjuriesState extends State<CommonInjuries> {
                 childAspectRatio: 170 / 160, // width / height
               ),
               itemBuilder: (context, index) {
+                int gotoPage = index;
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context, 
                       MaterialPageRoute(
                         builder: 
-                        (context) => const Templatecommoninjury(),
+                        (context) => Templatecommoninjury(whichPage: gotoPage,),
                       )
                     );
                   },
