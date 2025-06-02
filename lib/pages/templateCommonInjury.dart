@@ -19,6 +19,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
 
   @override
   Widget build(BuildContext context) {
+    _getInitialInfo();
     return Scaffold(
       appBar: appBar(),
       body: ListView(
@@ -29,7 +30,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                injuryDetail[1].injuryName,
+                injuryDetail[0].injuryName,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 30,
