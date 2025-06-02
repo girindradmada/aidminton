@@ -121,9 +121,9 @@ class _LoginPageState extends State<LoginPage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => MainPage(
-                        name: nameController.text.isNotEmpty ? nameController.text : 'Guest',
-                        email: emailController.text,
-                        password: passwordController.text,
+                        name: nameEditingController.text.isNotEmpty ? nameEditingController.text : 'Guest',
+                        email: emailEditingController.text,
+                        password: passwordEditingController.text,
                         phone: phoneController.text,
                       ),
                     ),
@@ -172,6 +172,11 @@ class _LoginPageState extends State<LoginPage> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: emailEditingController,
                       decoration: InputDecoration(
                         hintText: 'Insert Email',
@@ -205,6 +210,11 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
                       controller: passwordEditingController,
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       decoration: InputDecoration(
                         hintText: 'Insert Password',
                         border: InputBorder.none,
