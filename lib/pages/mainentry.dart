@@ -12,6 +12,11 @@ class MainEntryPage extends StatefulWidget {
 }
 
 class _MainEntryState extends State<MainEntryPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,12 +98,18 @@ class _MainEntryState extends State<MainEntryPage> {
   Widget SignUpBox() {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, 
-        MaterialPageRoute(builder: 
-        (context) => const Signup(),
-        )
-        );
-      },
+        Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Signup(
+            emailController: _emailController,
+            passwordController: _passwordController,
+            nameController: _nameController,
+            phoneController: _phoneController, // 👈 Add this
+          ),
+        ),
+      );
+        },
       child: Container(
               width: 363,
               height: 69,

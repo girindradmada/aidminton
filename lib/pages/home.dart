@@ -7,7 +7,9 @@ import 'package:aidminton/pages/mainentry.dart';
 import 'package:aidminton/pages/searchbar.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String name;
+
+  const HomePage({super.key, required this.name});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -311,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    'Asep!',
+                    widget.name,
                     style: TextStyle(
                       color: Color(0xffF1F9FF),
                       fontSize: 32,

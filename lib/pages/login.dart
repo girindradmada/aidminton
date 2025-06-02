@@ -5,13 +5,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatefulWidget{
-  const LoginPage({super.key});
+  final String? name;
+  final String? email;
+  final String? password;
+  final String? phone;
+
+  const LoginPage({
+    super.key,
+    this.name,
+    this.email,
+    this.password,
+    this.phone,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late TextEditingController nameController;
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  late TextEditingController phoneController;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController(text: widget.name ?? '');
+    emailController = TextEditingController(text: widget.email ?? '');
+    passwordController = TextEditingController(text: widget.password ?? '');
+    phoneController = TextEditingController(text: widget.phone ?? '');
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    nameController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+  
+  String email = '';
+  final emailEditingController = TextEditingController();
+  String password = '';
+  final passwordEditingController = TextEditingController();
+  String name = '';
+  final nameEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +81,15 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.only(left: 62, right: 60),
             child: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Signup()));
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => Signup(
+                  emailController: emailEditingController,
+                  passwordController: passwordEditingController,
+                  nameController: nameEditingController,
+                  phoneController: phoneController,
+                ))
+                );
               },
               child: Text(
                 'Dont have an account? Sign Up',
@@ -71,7 +119,14 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MainPage()),
+                    MaterialPageRoute(
+                      builder: (context) => MainPage(
+                        name: nameController.text.isNotEmpty ? nameController.text : 'Guest',
+                        email: emailController.text,
+                        password: passwordController.text,
+                        phone: phoneController.text,
+                      ),
+                    ),
                   );
                 },
                 child: Text(
@@ -114,6 +169,16 @@ class _LoginPageState extends State<LoginPage> {
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: emailEditingController,
+                      decoration: InputDecoration(
+                        hintText: 'Insert Email',
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -135,6 +200,16 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: BoxDecoration(
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: passwordEditingController,
+                      decoration: InputDecoration(
+                        hintText: 'Insert Password',
+                        border: InputBorder.none,
+                      ),
+                    ),
                   ),
                 )
               ],
