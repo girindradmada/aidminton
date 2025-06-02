@@ -154,6 +154,11 @@ class _SignupState extends State<Signup> {
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
                       controller: widget.nameController,
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       decoration: InputDecoration(
                         hintText: 'Insert Name',
                         border: InputBorder.none,
@@ -186,6 +191,11 @@ class _SignupState extends State<Signup> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: widget.emailController,
                       decoration: InputDecoration(
                         hintText: 'Insert Email',
@@ -219,6 +229,11 @@ class _SignupState extends State<Signup> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: widget.passwordController,
                       decoration: InputDecoration(
                         hintText: 'Insert Password',
@@ -253,6 +268,11 @@ class _SignupState extends State<Signup> {
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
                       controller: widget.passwordController,
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       decoration: InputDecoration(
                         hintText: 'Insert Password',
                         border: InputBorder.none,

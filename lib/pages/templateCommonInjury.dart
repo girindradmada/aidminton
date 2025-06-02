@@ -4,7 +4,8 @@ import 'package:aidminton/pages/commonInjuries.dart';
 import 'package:aidminton/models/injuryDetails.dart';
 
 class Templatecommoninjury extends StatefulWidget {
-  const Templatecommoninjury({super.key});
+  final int whichPage;
+  const Templatecommoninjury({super.key, required this.whichPage});
 
   @override
   State<Templatecommoninjury> createState() => _TemplatecommoninjuryState();
@@ -30,7 +31,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                injuryDetail[0].injuryName,
+                injuryDetail[widget.whichPage].injuryName,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 30,
@@ -51,7 +52,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                 ),
               ),
               Text(
-                injuryDetail[0].injuryDescription,
+                injuryDetail[widget.whichPage].injuryDescription,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -73,7 +74,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                 ),
               ),
               Text(
-                injuryDetail[0].injuryCauses,
+                injuryDetail[widget.whichPage].injuryCauses,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -95,7 +96,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                 ),
               ),
               Text(
-                injuryDetail[0].injurySymptoms,
+                injuryDetail[widget.whichPage].injurySymptoms,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -119,7 +120,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
               Padding(
                 padding: const EdgeInsets.only(left:35, right:35),
                 child: Text(
-                  injuryDetail[0].injuryDescription,
+                  injuryDetail[widget.whichPage].injuryDescription,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -155,7 +156,9 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                   ),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Image.asset('assets/icons/brokenbones.png'),
+                child: Image.asset(
+                  injuryDetail[widget.whichPage].injuryPhoto
+                ),
               ),
             )
           ],

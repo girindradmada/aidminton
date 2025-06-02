@@ -29,6 +29,17 @@ class InjuryDetailModel {
       )
     );
 
+    injuryDetail.add(
+      InjuryDetailModel(
+        injuryName: 'Cramps', 
+        injuryPhoto: 'assets/icons/cramps.png', 
+        injuryDescription: "A sharp pain that occurs when a muscle suddenly contracts",
+        injuryCauses: "Overuse, dehydration, electrolyte imbalances, nerve compression, and reduced blood flow.",
+        injurySymptoms: "Unexpected tightening of one or more muscles. Sometimes called a charley horse, a muscle cramp can be very painful.",
+        injuryTreatment: "Stretching, massaging, and applying heat or cold"
+      )
+    );
+
   //   commons.add(
   //     CommonModel(commonName: 'Cramps', injuryPhoto: 'assets/icons/cramps.png')
   //   );
