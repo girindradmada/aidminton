@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aidminton/pages/home.dart';
-import 'package:aidminton/main.dart';
 
 class SearchBarCustom extends StatefulWidget{
   const SearchBarCustom({super.key});
@@ -16,7 +14,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: appBar(context),
       body: ListView(
         children: [
           Column(
@@ -194,16 +192,18 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:3.0),
-                        child: Image.asset('assets/icons/search.svg'),
+                        child: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(width: 30),
-                      Text(
-                        "Common badminton injuries",
-                        style: TextStyle(
-                          fontFamily: "Gilroy-Medium",
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff2C3E50),
+                      Flexible(
+                        child: Text(
+                          "Common badminton injuries",
+                          style: TextStyle(
+                            fontFamily: "Gilroy-Medium",
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff2C3E50),
+                          ),
                         ),
                       )
                     ],
@@ -217,7 +217,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:3.0),
-                        child: Image.asset('assets/icons/search.svg'),
+                        child: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(width: 30),
                       Text(
@@ -240,16 +240,18 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:3.0),
-                        child: Image.asset('assets/icons/search.svg'),
+                        child: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(width: 30),
-                      Text(
-                        "Reducing joint pain",
-                        style: TextStyle(
-                          fontFamily: "Gilroy-Medium",
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff2C3E50),
+                      Flexible(
+                        child: Text(
+                          "Reducing joint pain",
+                          style: TextStyle(
+                            fontFamily: "Gilroy-Medium",
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff2C3E50),
+                          ),
                         ),
                       )
                     ],
@@ -263,16 +265,18 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:3.0),
-                        child: Image.asset('assets/icons/search.svg'),
+                        child: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(width: 30),
-                      Text(
-                        "Correct way to fall during badminton",
-                        style: TextStyle(
-                          fontFamily: "Gilroy-Medium",
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff2C3E50),
+                      Flexible(
+                        child: Text(
+                          "Correct way to fall during badminton",
+                          style: TextStyle(
+                            fontFamily: "Gilroy-Medium",
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff2C3E50),
+                          ),
                         ),
                       )
                     ],
@@ -286,16 +290,18 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:3.0),
-                        child: Image.asset('assets/icons/search.svg'),
+                        child: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(width: 30),
-                      Text(
-                        "How to improve footwork",
-                        style: TextStyle(
-                          fontFamily: "Gilroy-Medium",
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff2C3E50),
+                      Flexible(
+                        child: Text(
+                          "How to improve footwork",
+                          style: TextStyle(
+                            fontFamily: "Gilroy-Medium",
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff2C3E50),
+                          ),
                         ),
                       )
                     ],
@@ -309,16 +315,18 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top:3.0),
-                        child: Image.asset('assets/icons/search.svg'),
+                        child: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(width: 30),
-                      Text(
-                        "Why does my left hand hurt after playing badminton",
-                        style: TextStyle(
-                          fontFamily: "Gilroy-Medium",
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff2C3E50),
+                      Flexible(
+                        child: Text(
+                          "Why does my left hand hurt after playing badminton",
+                          style: TextStyle(
+                            fontFamily: "Gilroy-Medium",
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff2C3E50),
+                          ),
                         ),
                       )
                     ],
@@ -335,7 +343,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
   }
 }
 
-  PreferredSize appBar() {
+  PreferredSize appBar(BuildContext context) {
     return PreferredSize(
       preferredSize: Size.fromHeight(100),
       child: AppBar(
@@ -363,9 +371,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
           padding: const EdgeInsets.only(top: 15, left: 20),
           child: GestureDetector(
             onTap: () {
-              // Navigator.push(
-              //   context, MaterialPageRoute(builder: (context) => const MainPage())
-              // );
+              Navigator.pop(context);
             },
             child: SvgPicture.asset(
               'assets/icons/arrow_back.svg',
@@ -407,11 +413,10 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
           )
         ],
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(60),
+          preferredSize: Size.fromHeight(70), // Give enough room
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Container(
-              margin: EdgeInsets.only(bottom: 10),
               height: 46,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -421,7 +426,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: EdgeInsets.zero, // Reduce internal padding
                   hintText: 'Search for injuries',
                   hintStyle: TextStyle(
                     color: Color(0xffADADAD),
@@ -450,7 +455,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
               ),
             ),
           ),
-        ),  
+        ),
       ),
       
     );

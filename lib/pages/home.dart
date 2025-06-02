@@ -367,44 +367,38 @@ class _HomePageState extends State<HomePage> {
                   );
               },
               child: Container(
-              
                 margin: EdgeInsets.only(bottom: 10),
                 height: 46,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(60),
                 ),
-                // child: TextField(
-                //   decoration: InputDecoration(
-                //     filled: true,
-                //     fillColor: Colors.white,
-                //     contentPadding: EdgeInsets.all(10),
-                //     hintText: 'Search for injuries',
-                //     hintStyle: TextStyle(
-                //       color: Color(0xffADADAD),
-                //       fontSize: 16,
-                //     ),
-                //     prefixIcon: Padding(
-                //       padding: const EdgeInsets.all(10),
-                //       child: SvgPicture.asset('assets/icons/search.svg'),
-                //     ),
-                //     suffixIcon: Container(
-                //       width: 41,
-                //       height: 41,
-                //       decoration: BoxDecoration(
-                //         color: Color(0xffD9D9D9),
-                //         shape: BoxShape.circle,
-                //       ),
-                //       child: Center(
-                //         child: SvgPicture.asset('assets/icons/mic.svg'),
-                //       ),
-                //     ),
-                //     border: OutlineInputBorder(
-                //       borderRadius: BorderRadius.circular(60),
-                //       borderSide: BorderSide.none,
-                //     ),
-                //   ),
-                // ),
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('assets/icons/search.svg'),
+                    SizedBox(width: 12),
+                    Text(
+                      'Search for injuries',
+                      style: TextStyle(
+                        color: Color(0xffADADAD),
+                        fontSize: 16,
+                      ),
+                    ),
+                    Spacer(),
+                    Container(
+                      width: 41,
+                      height: 41,
+                      decoration: BoxDecoration(
+                        color: Color(0xffD9D9D9),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: SvgPicture.asset('assets/icons/mic.svg'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

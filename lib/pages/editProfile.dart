@@ -146,6 +146,11 @@ class _EditProfileState extends State<EditProfile> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: nameController, // or the appropriate one
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -177,6 +182,11 @@ class _EditProfileState extends State<EditProfile> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: emailController, // or the appropriate one
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -208,6 +218,11 @@ class _EditProfileState extends State<EditProfile> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: passwordController, // or the appropriate one
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -239,6 +254,11 @@ class _EditProfileState extends State<EditProfile> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                     child: TextField(
+                      style: TextStyle(
+                        color: Color(0xffF1F9FF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400
+                      ),
                       controller: phoneController, // or the appropriate one
                       decoration: InputDecoration(
                         border: InputBorder.none,
