@@ -1,14 +1,49 @@
+import 'package:aidminton/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class EditProfile extends StatefulWidget{
-  const EditProfile({super.key});
+  final String name;
+  final String email;
+  final String password;
+  final String phone;
+
+  const EditProfile({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
+  });
 
   @override
   State<EditProfile> createState() => _EditProfileState();
 }
 
 class _EditProfileState extends State<EditProfile> {
+  late TextEditingController nameController;
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  late TextEditingController phoneController;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController = TextEditingController(text: widget.name);
+    emailController = TextEditingController(text: widget.email);
+    passwordController = TextEditingController(text: widget.password);
+    phoneController = TextEditingController(text: widget.phone);
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -108,27 +143,14 @@ class _EditProfileState extends State<EditProfile> {
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30),
                   ),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Nickname',
-                  style: TextStyle(
-                    color: Color(0xffF1F9FF),
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600
-                  ),
-                ),
-                Container(
-                  width: 345, 
-                  height: 61,
-                  decoration: BoxDecoration(
-                    color: Color(0xffD9D9D9).withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(30)
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: nameController, // or the appropriate one
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
                   ),
                 )
               ],
@@ -152,6 +174,15 @@ class _EditProfileState extends State<EditProfile> {
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: emailController, // or the appropriate one
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -174,6 +205,15 @@ class _EditProfileState extends State<EditProfile> {
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
                   ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: passwordController, // or the appropriate one
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -195,6 +235,15 @@ class _EditProfileState extends State<EditProfile> {
                   decoration: BoxDecoration(
                     color: Color(0xffD9D9D9).withOpacity(0.5),
                     borderRadius: BorderRadius.circular(30)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+                    child: TextField(
+                      controller: phoneController, // or the appropriate one
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
                   ),
                 )
               ],
@@ -226,10 +275,25 @@ class _EditProfileState extends State<EditProfile> {
                 color: Color(0xffF1F9FF),
               ),
             ),
-            SvgPicture.asset(
-              'assets/icons/greencheck.svg',
-              width: 25,
-              height: 25
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) => MainPage(
+                      name: nameController.text,
+                      email: emailController.text,
+                      password: passwordController.text,
+                      phone: phoneController.text,
+                    )
+                  )
+                );
+              },
+              child: SvgPicture.asset(
+                'assets/icons/greencheck.svg',
+                width: 25,
+                height: 25
+              ),
             )
           ],
         );

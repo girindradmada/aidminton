@@ -24,7 +24,18 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  final String name;
+  final String email;
+  final String password;
+  final String phone;
+
+  const MainPage({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
+  });
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -33,11 +44,21 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int myIndex = 1;
 
-  final List<Widget> pages = [
-    CustomerService(),
-    HomePage(),
-    Settings(),
-  ];
+  late final List<Widget> pages;
+  @override
+  void initState() {
+    super.initState();
+    pages = [
+      CustomerService(),
+      HomePage(name: widget.name),
+      Settings(
+        name: widget.name,
+        email: widget.email,
+        password: widget.password,
+        phone: widget.phone,
+      ),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

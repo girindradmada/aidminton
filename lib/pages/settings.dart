@@ -2,7 +2,18 @@ import 'package:aidminton/pages/editProfile.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
-  const Settings({super.key});
+  final String name;
+  final String email;
+  final String password;
+  final String phone;
+
+  const Settings({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
+  });
 
   @override
   State<Settings> createState() => _SettingsState();
@@ -124,7 +135,12 @@ class _SettingsState extends State<Settings> {
         Navigator.push(
           context, 
           MaterialPageRoute(
-            builder: (context) => const EditProfile()
+            builder: (context) => EditProfile(
+              name: widget.name,
+              email: widget.email,
+              password: widget.password,
+              phone: widget.phone,
+            )
           )
         );
       },
