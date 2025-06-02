@@ -14,13 +14,14 @@ class InjuryLog extends StatefulWidget {
 class _InjuryLogState extends State<InjuryLog> {
   List<LogModel> logs = [];
 
-  void _getInitialInfo() {
+  @override
+  void initState() {
+    super.initState();
     logs = LogModel.getLog();
   }
 
   @override 
   Widget build(BuildContext context) {
-    _getInitialInfo();
     return Scaffold(
       appBar: appBar(),
       body: ListView(
@@ -29,13 +30,19 @@ class _InjuryLogState extends State<InjuryLog> {
           listLog(),
           SizedBox(height: 20),
           GestureDetector(
-            onTap: () {
-              Navigator.push(
+            onTap: () async {
+              final result = await Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const NewInjury()
+                  builder: (context) => const NewInjury(),
                 ),
-              ); 
+              );
+
+              if (result != null && result is LogModel) {
+                setState(() {
+                  logs.add(result);
+                });
+              }
             },
             child: Container(
               width: 350, 
