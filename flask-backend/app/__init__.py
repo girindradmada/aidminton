@@ -1,10 +1,14 @@
 from flask import Flask
+from flask_session import Session
 from .models import db
 
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///aidminton.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SESSION_TYPE'] = 'filesystem' #added configuration for flask session 03/06
+    app.config['SESSION_PERMANENT'] = False
+
 
     db.init_app(app)
 
