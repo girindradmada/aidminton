@@ -86,6 +86,70 @@ class _NewInjuryState extends State<NewInjury> {
     );
   }
 
+  Widget severitySelection() {
+    final severityOptions = [
+      {'icon': 'assets/icons/bandage.png', 'isSvg': false},
+      {'icon': 'assets/icons/low.svg', 'isSvg': true},
+      {'icon': 'assets/icons/mild.svg', 'isSvg': true},
+      {'icon': 'assets/icons/Alert triangle.svg', 'isSvg': true},
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Severity',
+          style: TextStyle(
+            color: Color(0xff095D7E),
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        SizedBox(height: 8),
+        Container(
+          width: 350,
+          height: 75,
+          decoration: BoxDecoration(
+            color: Color(0xff095D7E),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: severityOptions.map((option) {
+              final String iconPath = option['icon'] as String;
+              final bool isSvg = option['isSvg'] as bool;
+              final bool isSelected = selectedSeverity == iconPath;
+
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSeverity = iconPath;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? Color(0xffCCECEE).withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: isSelected ? Colors.white : Colors.transparent,
+                      width: 2,
+                    ),
+                  ),
+                  child: isSvg
+                      ? SvgPicture.asset(iconPath, width: 40, height: 40)
+                      : Image.asset(iconPath, width: 40, height: 40),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
+  }
+
   Column mainContentInjury() {
     String displayDateTimeText = 'DD/MM/YYYY hh:mm';
     if (selectedDateTime != null) {
@@ -96,38 +160,7 @@ class _NewInjuryState extends State<NewInjury> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Severity',
-                  style: TextStyle(
-                    color: Color(0xff095D7E),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500
-                  )
-                ),
-                Container(
-                  width: 350,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Color(0xff095D7E),
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/icons/bandage.png'),
-                      SvgPicture.asset('assets/icons/low.svg'),
-                      SvgPicture.asset('assets/icons/mild.svg'),
-                      SvgPicture.asset('assets/icons/Alert triangle.svg'),
-                    ],
-                  ),
-                )
-              ],
-            ),
+            severitySelection(),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -251,49 +284,75 @@ class _NewInjuryState extends State<NewInjury> {
         );
   }
 
-  Container injuryType() {
-    return Container(
-          width: 350,
-          height: 125,
-          margin: EdgeInsets.only(left: 30, right: 30),
-          decoration: BoxDecoration(
-            color: Color(0xff095D7E),
-            borderRadius: BorderRadius.circular(20)
+  Widget injuryType() {
+    List<String> injuryOptions = [
+      'Dislocated Shoulder',
+      'Bruised Knee',
+      'Torn ACL',
+      'Sprained Ankle',
+      'Pulled Hamstring',
+    ];
+
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Image.asset(
-                  'assets/icons/plusSign.png'
+          backgroundColor: Colors.white,
+          builder: (BuildContext context) {
+            return ListView.builder(
+              itemCount: injuryOptions.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(injuryOptions[index]),
+                  onTap: () {
+                    setState(() {
+                      _selectedType.text = injuryOptions[index];
+                    });
+                    Navigator.pop(context);
+                  },
+                );
+              },
+            );
+          },
+        );
+      },
+      child: Container(
+        width: 350,
+        height: 125,
+        margin: EdgeInsets.only(left: 30, right: 30),
+        decoration: BoxDecoration(
+          color: Color(0xff095D7E),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Image.asset('assets/icons/plusSign.png'),
+            ),
+            SizedBox(width: 20),
+            Expanded(
+              child: Text(
+                _selectedType.text.isNotEmpty ? _selectedType.text : 'Injury Type',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Color(0xffCCECEE),
+                  fontWeight: FontWeight.w600,
                 ),
+                overflow: TextOverflow.ellipsis,
               ),
-              Expanded(
-                child: TextField(
-                  controller: _selectedType,
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Color(0xffCCECEE),
-                    fontWeight: FontWeight.w600
-                  ),
-                  decoration: InputDecoration(
-                    hintText: 'Injury Name',
-                    hintStyle: TextStyle(
-                        fontSize: 30,
-                        color: Color(0xffCCECEE),
-                        fontWeight: FontWeight.w600
-                      ),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(10),
-                  ),
-                ),
-              ),
-            ],
-          ),
-         );
+            )
+          ],
+        ),
+      ),
+    );
   }
+
   PreferredSize appBar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(100),

@@ -100,11 +100,9 @@ class _InjuryLogState extends State<InjuryLog> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(width: 15,),
-                      SvgPicture.asset(
-                        logs[index].priority,
-                        width: 61,
-                        height: 61
-                      ),
+                      logs[index].priority.endsWith('.svg')
+                        ? SvgPicture.asset(logs[index].priority, width: 61, height: 61)
+                        : Image.asset(logs[index].priority, width: 61, height: 61),
                       SizedBox(width: 15),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
