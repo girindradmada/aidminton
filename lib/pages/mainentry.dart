@@ -18,39 +18,37 @@ class _MainEntryState extends State<MainEntryPage> {
   final TextEditingController _phoneController = TextEditingController();
 
   @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _nameController.dispose();
+    _phoneController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBar(),
-        body: ListView(
-          children: [
-            SizedBox(
-              height: 40,
-            ),
-            Image.asset(
-              'assets/icons/Logo.png',
-            ),
-            SizedBox(height: 30),
-            LoginBox(),
-            SizedBox(
-              height: 20,
-            ),
-            SignUpBox(),
-            SizedBox(
-              height: 30,
-            ),
-            Forgot_AccountBox(),
-          ],
-        ));
+      appBar: appBar(),
+      body: ListView(
+        children: [
+          const SizedBox(height: 40),
+          Image.asset('assets/icons/Logo.png'),
+          const SizedBox(height: 30),
+          LoginBox(),
+          const SizedBox(height: 20),
+          SignUpBox(),
+          const SizedBox(height: 30),
+          Forgot_AccountBox(),
+        ],
+      ),
+    );
   }
 
   Widget Forgot_AccountBox() {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, 
-        MaterialPageRoute(builder: 
-        (context) => const Forgotpassword(),
-        )
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const Forgotpassword()));
       },
       child: Center(
         child: Text(
@@ -60,38 +58,35 @@ class _MainEntryState extends State<MainEntryPage> {
             fontWeight: FontWeight.w500,
             color: Color(0xff095D7E),
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 
   Widget LoginBox() {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context, 
-          MaterialPageRoute(builder: (context) => const LoginPage())
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
       },
       child: Container(
-              width: 363,
-              height: 69,
-              margin: EdgeInsets.only(left: 20, right: 20),
-              decoration:BoxDecoration(
-                color: Color(0xff095D7E),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xffF1F9FF),
-                  ),
-                )
-              ),
+        width: 363,
+        height: 69,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          color: const Color(0xff095D7E),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Center(
+          child: Text(
+            "Login",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Color(0xffF1F9FF),
             ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -99,83 +94,83 @@ class _MainEntryState extends State<MainEntryPage> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Signup(
-            emailController: _emailController,
-            passwordController: _passwordController,
-            nameController: _nameController,
-            phoneController: _phoneController, // 👈 Add this
+          context,
+          MaterialPageRoute(builder: (context) => const SignupPage()),
+        );
+      },
+      child: Container(
+        width: 363,
+        height: 69,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          color: const Color(0xffCCECEE),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Center(
+          child: Text(
+            "Sign Up",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Color(0xff095D7E),
+            ),
           ),
         ),
-      );
-        },
-      child: Container(
-              width: 363,
-              height: 69,
-              margin: EdgeInsets.only(left: 20, right: 20),
-              decoration:BoxDecoration(
-                color: Color(0xffCCECEE),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff095D7E),
-                  ),
-                )
-              ),
-            ),
+      ),
     );
   }
 
   PreferredSize appBar() {
     return PreferredSize(
-      preferredSize: Size.fromHeight(100),
+      preferredSize: const Size.fromHeight(100),
       child: AppBar(
-        leading: SizedBox(),
-        backgroundColor: Color(0xff095D7E),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(45))),
+        leading: const SizedBox(),
+        backgroundColor: const Color(0xff095D7E),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(45)),
+        ),
         actions: [
           GestureDetector(
-              onTap: () {},
-              child: Container(
-                  width: 111,
-                  height: 44,
-                  margin: EdgeInsets.only(right: 15),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(40),
-                      border: Border.all(color: Color(0xffCCECEE))),
-                  child: Center(
-                      child: Text(
-                    "English",
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xffCCECEE)),
-                  )))),
+            onTap: () {},
+            child: Container(
+              width: 111,
+              height: 44,
+              margin: const EdgeInsets.only(right: 15),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(40),
+                border: Border.all(color: Color(0xffCCECEE)),
+              ),
+              child: const Center(
+                child: Text(
+                  "English",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xffCCECEE),
+                  ),
+                ),
+              ),
+            ),
+          ),
           GestureDetector(
-              onTap: () {},
-              child: Container(
-                  width: 44,
-                  height: 47,
-                  margin: EdgeInsets.only(right: 15),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Color(0xffCCECEE))),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/QuestionMark.svg',
-                    ),
-                  )))
+            onTap: () {},
+            child: Container(
+              width: 44,
+              height: 47,
+              margin: const EdgeInsets.only(right: 15),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                shape: BoxShape.circle,
+                border: Border.all(color: Color(0xffCCECEE)),
+              ),
+              child: Center(
+                child: SvgPicture.asset('assets/icons/QuestionMark.svg'),
+              ),
+            ),
+          ),
         ],
       ),
     );
