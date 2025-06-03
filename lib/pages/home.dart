@@ -1,4 +1,5 @@
 import 'package:aidminton/pages/commonInjuries.dart';
+import 'package:aidminton/pages/emergencyContacts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/pages/injuryLog.dart';
@@ -153,7 +154,11 @@ class _HomePageState extends State<HomePage> {
                         shadowColor: Colors.transparent
                       ),
                       onPressed: () {
-                       
+                        Navigator.push(
+                          context, MaterialPageRoute(
+                            builder: (context) => Emergencycontacts()
+                          )
+                        );
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(left: 1, right: 2),
@@ -259,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const InjuryLog()),
+                    MaterialPageRoute(builder: (context) => InjuryLog()),
                   );
                 },
                 child: Text(
@@ -329,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const MainEntryPage()),
+                        builder: (context) => MainEntryPage()),
                   );
                 },
                 child: Container(
@@ -363,7 +368,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const SearchBarCustom()),
+                        builder: (context) => SearchBarCustom()),
                   );
               },
               child: Container(

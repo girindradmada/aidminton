@@ -345,7 +345,7 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
 
   PreferredSize appBar(BuildContext context) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(100),
+      preferredSize: Size.fromHeight(130),
       child: AppBar(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
