@@ -4,24 +4,40 @@ from .models import db, User, InjuryLog, MedicalExpert, CommonInjuries, Emergenc
 main = Blueprint('main', __name__)
 
 # Users
-@main.route('/users', methods=['GET'])
-def get_users():
-    users = User.query.all()
-    session['user_email'] = users.email
-    return jsonify([{'username': u.username, 'email': u.email, 'password':u.password} for u in users]) #removed id and added password
+
 
 # @main.route('/users/<int:user_id>', methods=['GET']) 
 # def get_user(user_id):
 #     user = User.query.get_or_404(user_id)
 #     return jsonify({'id': user.id, 'username': user.username, 'email': user.email})
 
-@main.route('/users', methods=['POST']) # removed id and added password 03/06
+@main.route('/users', methods=['POST'])
 def create_user():
     data = request.json
+    if not all(k in data for k in ['username', 'email', 'password']):
+        return jsonify({'error': 'Missing required fields'}), 400
+
+    if User.query.filter_by(email=data['email']).first():
+        return jsonify({'error': 'User already exists'}), 409
+
     user = User(username=data['username'], email=data['email'], password=data['password'])
     db.session.add(user)
     db.session.commit()
-    return jsonify({'username': user.username, 'email': user.email, 'password': user.password}), 201
+    return jsonify({'message': 'User created successfully'}), 201
+
+@main.route('/login', methods=['POST'])
+def login_user():
+    data = request.json
+    if not all(k in data for k in ['email', 'password']):
+        return jsonify({'error': 'Missing email or password'}), 400
+
+    user = User.query.filter_by(email=data['email'], password=data['password']).first()
+    if user:
+        session['user_email'] = user.email
+        return jsonify({'message': 'Login successful', 'email': user.email}), 200
+
+    return jsonify({'error': 'Invalid credentials'}), 401
+
 
 @main.route('/logout', methods=['POST']) #added logout
 def logout():
@@ -59,7 +75,7 @@ def add_injury_log():
     log = InjuryLog(
         user_email=session['user_email'],
         injury_type=data['injury_type'],
-        description=data('description', ''),
+        description = data.get('description', ''),
         date=data['date'],
         severity=data['severity']
     )

@@ -1,0 +1,2 @@
+D:/aidminton/android/app/.cxx/Debug/3e70n1pl/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/aidminton/android/app/.cxx/Debug/3e70n1pl/arm64-v8a/CMakeFiles/rebuild_cache.dir
