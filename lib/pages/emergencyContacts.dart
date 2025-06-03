@@ -120,7 +120,7 @@ class _EmergencycontactsState extends State<Emergencycontacts> {
               children: [
                 SvgPicture.asset('assets/icons/Contacts.svg'),
                 Text(
-                  'Add Contacts',
+                  'Connected Contacts',
                   style: TextStyle(
                     color: Color(0xffCCECEE),
                     fontSize: 30,

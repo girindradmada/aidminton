@@ -42,7 +42,7 @@ class FrequentModel {
       FrequentModel(
         question: 'Forgot password?', 
         // answer: "We have a designated page that will send an email to your account and you may change your password from there."
-        answer: "boo hoo cry about it nigga"
+        answer: "Wow, too bad cro.. ts pmo"
       )
     );
 
