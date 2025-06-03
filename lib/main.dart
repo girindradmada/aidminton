@@ -6,18 +6,15 @@ import 'package:aidminton/pages/home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Gilroy'
-      ),
+      theme: ThemeData(fontFamily: 'Gilroy'),
       home: MainEntryPage(),
     );
   }
@@ -30,12 +27,12 @@ class MainPage extends StatefulWidget {
   final String phone;
 
   const MainPage({
-    super.key,
+    Key? key,
     required this.name,
     required this.email,
     required this.password,
     required this.phone,
-  });
+  }) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -43,8 +40,8 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int myIndex = 1;
-
   late final List<Widget> pages;
+
   @override
   void initState() {
     super.initState();
@@ -75,9 +72,8 @@ class _MainPageState extends State<MainPage> {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 0.1, vertical: 0.1),
         decoration: BoxDecoration(
-          color: Color(0xffCCECEE),
+          color: const Color(0xffCCECEE),
           borderRadius: BorderRadius.circular(45),
         ),
         child: BottomNavigationBar(
@@ -87,8 +83,8 @@ class _MainPageState extends State<MainPage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xffE2FCD6),
-          unselectedItemColor: Color(0xff095D7E),
+          selectedItemColor: const Color(0xffE2FCD6),
+          unselectedItemColor: const Color(0xff095D7E),
           onTap: (index) {
             setState(() {
               myIndex = index;
@@ -96,72 +92,40 @@ class _MainPageState extends State<MainPage> {
           },
           items: [
             BottomNavigationBarItem(
-                icon: Container(
-                  width: 43,
-                  height: 43,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: myIndex == 0
-                          ? Color(0xff095D7E)
-                          : Colors.transparent),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/Customer Care.svg',
-                      width: 30,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        myIndex == 0 ? Color(0xffE2FCD6) : Color(0xff095D7E),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-                label: 'Customer Care'),
+              icon: _navIcon('assets/icons/Customer Care.svg', 0),
+              label: 'Customer Care',
+            ),
             BottomNavigationBarItem(
-                icon: Container(
-                  width: 43,
-                  height: 43,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: myIndex == 1
-                          ? Color(0xff095D7E)
-                          : Colors.transparent),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/Home.svg',
-                      width: 30,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        myIndex == 1 ? Color(0xffE2FCD6) : Color(0xff095D7E),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-                label: 'Home'),
+              icon: _navIcon('assets/icons/Home.svg', 1),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
-                icon: Container(
-                  width: 43,
-                  height: 43,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: myIndex == 2
-                          ? Color(0xff095D7E)
-                          : Colors.transparent),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      'assets/icons/Settings.svg',
-                      width: 30,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                        myIndex == 2 ? Color(0xffE2FCD6) : Color(0xff095D7E),
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-                label: 'Settings'),
+              icon: _navIcon('assets/icons/Settings.svg', 2),
+              label: 'Settings',
+            ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _navIcon(String assetPath, int index) {
+    return Container(
+      width: 43,
+      height: 43,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: myIndex == index ? const Color(0xff095D7E) : Colors.transparent,
+      ),
+      child: Center(
+        child: SvgPicture.asset(
+          assetPath,
+          width: 30,
+          height: 24,
+          colorFilter: ColorFilter.mode(
+            myIndex == index ? const Color(0xffE2FCD6) : const Color(0xff095D7E),
+            BlendMode.srcIn,
+          ),
         ),
       ),
     );
