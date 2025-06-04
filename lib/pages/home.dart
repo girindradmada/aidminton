@@ -1,10 +1,10 @@
 import 'package:aidminton/pages/commonInjuries.dart';
 import 'package:aidminton/pages/emergencyContacts.dart';
+import 'package:aidminton/pages/notifPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aidminton/pages/injuryLog.dart';
 import 'package:aidminton/pages/medicalExperts.dart';
-import 'package:aidminton/pages/mainentry.dart';
 import 'package:aidminton/pages/searchbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -334,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainEntryPage()),
+                        builder: (context) => NotifPage()),
                   );
                 },
                 child: Container(
