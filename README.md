@@ -103,7 +103,7 @@ Aidminton is a mobile application designed to help badminton players track and m
    ```
 2. Make each terminal for backend and front end in powershell
 
-3. Cd to * *aidminton/flask-backend* * (Backend terminal)
+3. Cd to `aidminton/flask-backend` (Backend terminal)
 
 4. Activate a virtual enviroment (U can skip to 6, if there already is a virtual enviroment) (Backend terminal):
    ```
@@ -127,12 +127,12 @@ Aidminton is a mobile application designed to help badminton players track and m
    pip install -r requirements.txt
    ```
 
-7. Cd to * *aidminton/flask-backend/app/config.py* * and change the FLASK_SECRET_KEY to your liking (Backend terminal):
+7. Cd to `aidminton/flask-backend/app/config.py` and change the FLASK_SECRET_KEY to your liking (Backend terminal):
    ```
    FLASK_SECRET_KEY=your_secret_key_here
    ```
 
-8. Go back * *aidminton/flask-backend* * and Initialize the database (Backend terminal):
+8. Go back `aidminton/flask-backend` and Initialize the database (Backend terminal):
    ```
    python init_db.py
    ```
@@ -142,7 +142,7 @@ Aidminton is a mobile application designed to help badminton players track and m
    python run.py
    ```
 
-10. In the Frontend terminal, Cd to * *aidminton* * folder at the beginning, activate your Android Studio Emulator, and then run your appplication (Frontend terminal):
+10. In the Frontend terminal, Cd to `aidminton` folder at the beginning, activate your Android Studio Emulator, and then run your appplication (Frontend terminal):
    ```
    #Activate your Android Studio Emulator
    flutter clean
