@@ -30,7 +30,11 @@ Aidminton is a mobile application designed to help badminton players track and m
 
 ## Features
 
-- (Not completed yet)
+- **User Authentication**: Secure signup and login functionality
+- **Profile Management**: Users can update their personal information
+- **Injury Logging**: Record injury details including title, description, date, and pain level
+- **Injury History**: View a log of past injuries
+- **Medical Expert Resources**: Access information about medical professionals
 
 ## Technology Stack
 
@@ -152,7 +156,15 @@ Aidminton is a mobile application designed to help badminton players track and m
 
 ## Project Structure
 
-- (Not completed yet)
+- `flask-backend/run.py`: Main application file containing routes and logic
+- `flask-backend/app/init_db.py`: Database initialization script
+- `flask-backend/app/models.py`: 
+- `flask-backend/app/routes.py`: 
+- `flask-backend/app/config.py`: 
+- `requirements.txt`: Project dependencies
+- `lib/pages/`: 
+- `lib/models/`: 
+- `lib/services/main.dart`:
 
 ## Context
 
