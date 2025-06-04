@@ -2,16 +2,31 @@
 
 Aidminton is a mobile application designed to help badminton players track and manage their injuries. This application allows users to create accounts, log injuries, track pain levels, and access resources for injury prevention and recovery.
 
-#Team Members
+## Team Members
 
-- **Raditya Maheswara** 23/516252/PA/22075 Universitas Gadjah Mada (UGM)
-- **Muhammad Fariz** 23/518174/PA/22237 Universitas Gadjah Mada (UGM)
-- **Girindra Daafi Mada** 23/511637/PA/21835 Universitas Gadjah Mada (UGM)
-- **Sultan Rizqinta Sinuraya** 23/516307/PA/22087 Universitas Gadjah Mada (UGM)
+- **Name**: Raditya Maheswara  
+  **NIM**: 23/516252/PA/22075  
+  **University**: Universitas Gadjah Mada (UGM)
 
-Honorable Member
+- **Name**: Muhammad Fariz  
+  **NIM**: 23/518174/PA/22237  
+  **University**: Universitas Gadjah Mada (UGM)
 
-- **Muhammad Fatih Arrazy**  University of Technology Sydney (UTS)
+- **Name**: Girindra Daafi Mada  
+  **NIM**: 23/511637/PA/21835  
+  **University**: Universitas Gadjah Mada (UGM)
+
+- **Name**: Sultan Rizqinta Sinuraya  
+  **NIM**: 23/516307/PA/22087  
+  **University**: Universitas Gadjah Mada (UGM)
+
+---
+
+### Honorable Member
+
+- **Name**: Muhammad Fatih Arrazy  
+  **University**: University of Technology Sydney (UTS)
+
 
 ## Features
 
