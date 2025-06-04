@@ -42,6 +42,7 @@ Aidminton is a mobile application designed to help badminton players track and m
 ## Troubleshooting (if troube arises)
 
 1. Gradle version not compatible because it need the 8.4 version instead of 8.3
+   
    1.1 Cd to aidminton/android
    1.2 Find gradle-wrapper.properties and make sure everything inside is the same as below:
    ```
@@ -62,6 +63,7 @@ Aidminton is a mobile application designed to help badminton players track and m
    flutter run
    ```
 2. Python virtual enviroment unable to run/installation dependencies is not complete
+   
    2.1 Cd to aidminton/flask-backend
    2.2 Delete the virtual enviroment previously in the file
    2.3 Create a new virtual enviroment:
