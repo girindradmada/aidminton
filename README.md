@@ -20,13 +20,11 @@ Aidminton is a mobile application designed to help badminton players track and m
   **NIM**: 23/516307/PA/22087  
   **University**: Universitas Gadjah Mada (UGM)
 
+- **Name**: Muhammad Rafif Akio 
+  **NIM**: 23/511466/PA/21802
+  **University**: Universitas Gadjah Mada (UGM)
+
 ---
-
-### Honorable Member
-
-- **Name**: Muhammad Fatih Arrazy  
-  **University**: University of Technology Sydney (UTS)
-
 
 ## Features
 
