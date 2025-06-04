@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:aidminton/pages/commonInjuries.dart';
 import 'package:aidminton/models/injuryDetails.dart';
 
 class Templatecommoninjury extends StatefulWidget {
@@ -51,14 +50,17 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                   decoration: TextDecoration.underline,
                 ),
               ),
-              Text(
-                injuryDetail[widget.whichPage].injuryDescription,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Gilroy-Light',
-                  fontWeight: FontWeight.normal,
-                  color: Color(0xff000000),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  injuryDetail[widget.whichPage].injuryDescription,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Gilroy-Light',
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
               SizedBox(height:50),
@@ -73,14 +75,17 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                   decoration: TextDecoration.underline,
                 ),
               ),
-              Text(
-                injuryDetail[widget.whichPage].injuryCauses,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Gilroy-Light',
-                  fontWeight: FontWeight.normal,
-                  color: Color(0xff000000),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  injuryDetail[widget.whichPage].injuryCauses,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Gilroy-Light',
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
               SizedBox(height:50),
@@ -95,14 +100,17 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                   decoration: TextDecoration.underline,
                 ),
               ),
-              Text(
-                injuryDetail[widget.whichPage].injurySymptoms,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Gilroy-Light',
-                  fontWeight: FontWeight.normal,
-                  color: Color(0xff000000),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  injuryDetail[widget.whichPage].injurySymptoms,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Gilroy-Light',
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xff000000),
+                  ),
                 ),
               ),
               SizedBox(height:50),
@@ -118,9 +126,9 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left:35, right:35),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  injuryDetail[widget.whichPage].injuryDescription,
+                  injuryDetail[widget.whichPage].injuryTreatment,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -131,9 +139,8 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
                 ),
               ),
             ]
-            
-          )
-          
+          ),
+          SizedBox(height:50),
         ]
       )
     );
@@ -190,9 +197,7 @@ class _TemplatecommoninjuryState extends State<Templatecommoninjury> {
               padding: const EdgeInsets.only(top: 15, left: 20),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => const CommonInjuries())
-                  );
+                  Navigator.pop(context);
                 },
                 child: SvgPicture.asset(
                   'assets/icons/arrow_back.svg',
