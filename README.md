@@ -39,54 +39,61 @@ Aidminton is a mobile application designed to help badminton players track and m
 - **Frontend**: Flutter (Dart)
 - **Authentication**: Werkzeug security for password hashing
 
-## Troubleshooting (if troube arises)
+## Troubleshooting (if trouble arises)
 
-1. Gradle version not compatible because it need the 8.4 version instead of 8.3
-   
-   1.1 Cd to * *aidminton/android* *
-   1.2 Find gradle-wrapper.properties and make sure everything inside is the same as below:
-   ```
-   distributionBase=GRADLE_USER_HOME
-   distributionPath=wrapper/dists
-   zipStoreBase=GRADLE_USER_HOME
-   zipStorePath=wrapper/dists
-   distributionUrl=https://services.gradle.org/distributions/gradle-8.4-all.zip 
-   ```
-   1.3 Run this in * *aidminton/android* *:
-   ```
-   .\gradlew wrapper
-   ```
-   1.4 After installation, run this:
-   ```
-   flutter clean
-   flutter pub get
-   flutter run
-   ```
-2. Python virtual enviroment unable to run/installation dependencies is not complete
-   
-   2.1 Cd to * *aidminton/flask-backend* *
-   2.2 Delete the virtual enviroment previously in the file
-   2.3 Create a new virtual enviroment:
-   ```
-   python3 -m venv venv
-   ```
-   2.4 Now activate the virtual enviroment (If u can run, u can skip to 2.6):
-   ```
-   .\venv\Scripts\Activate
-   ```
-   2.5 If you get a policy error saying scripts are disabled, run PowerShell as Administrator once and do:
-   ```
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   ```
-   2.5 Then re-try:
-   ```
-   .\venv\Scripts\Activate
-   ```
-   2.6 Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-   
+### 1. Gradle version not compatible (requires 8.4 instead of 8.3)
+
+- Open terminal and:
+  - `cd aidminton/android`
+  - Open `gradle-wrapper.properties` and ensure it contains:
+    ```
+    distributionBase=GRADLE_USER_HOME
+    distributionPath=wrapper/dists
+    zipStoreBase=GRADLE_USER_HOME
+    zipStorePath=wrapper/dists
+    distributionUrl=https://services.gradle.org/distributions/gradle-8.4-all.zip
+    ```
+- Then run:
+    ```
+    .\gradlew wrapper
+    ```
+- After installation:
+    ```
+    flutter clean
+    flutter pub get
+    flutter run
+    ```
+
+### 2. Python virtual environment not working / dependencies missing
+
+- Navigate to the backend directory:
+    ```
+    cd aidminton/flask-backend
+    ```
+- Delete any existing virtual environment
+- Create a new one:
+    ```
+    python3 -m venv venv
+    ```
+- Activate it:
+    ```
+    .\venv\Scripts\Activate
+    ```
+- If you get a policy error:
+  - Run PowerShell as Administrator:
+    ```
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
+  - Then try activating again:
+    ```
+    .\venv\Scripts\Activate
+    ```
+- Install dependencies:
+    ```
+    pip install -r requirements.txt
+    ```
+
+
 ## Installation
 
 1. Clone the repository:
