@@ -20,7 +20,7 @@ Aidminton is a mobile application designed to help badminton players track and m
   **NIM**: 23/516307/PA/22087  
   **University**: Universitas Gadjah Mada (UGM)
 
-- **Name**: Muhammad Rafif Akio 
+- **Name**: Muhammad Rafif Akio
   **NIM**: 23/511466/PA/21802
   **University**: Universitas Gadjah Mada (UGM)
 
@@ -30,10 +30,15 @@ Aidminton is a mobile application designed to help badminton players track and m
 
 - **User Authentication**: Secure signup and login functionality
 - **Profile Management**: Users can update their personal information
-- **Injury Logging**: Record injury details including title, description, date, and pain level
+- **Common Injuries**: List of common injuries that can occur during badminton sessions
+- **Injury Loggin**: Record injury details including title, description, date, and pain level
+- **First Aid Guide**: Offline first aid encyclopedia for first hand emergency
 - **Injury History**: View a log of past injuries
 - **Medical Expert Resources**: Access information about medical professionals
+- **Customer Service**: Display FAQS and linked users to our customer support chat and call
+- **Emergency Contact**: Contacting emergency contacts through the user's registered contact / authorities 
 
+  
 ## Technology Stack
 
 - **Backend**: Flask (Python)
@@ -154,15 +159,15 @@ Aidminton is a mobile application designed to help badminton players track and m
 
 ## Project Structure
 
-- `flask-backend/run.py`: Main application file containing routes and logic
+- `flask-backend/run.py`: Running the main python backend
 - `flask-backend/app/init_db.py`: Database initialization script
-- `flask-backend/app/models.py`: 
-- `flask-backend/app/routes.py`: 
-- `flask-backend/app/config.py`: 
+- `flask-backend/app/models.py`: Offline database for backend
+- `flask-backend/app/routes.py`: Routing the user flow of backend to frontend
+- `flask-backend/app/config.py`: Configuration files for python
 - `requirements.txt`: Project dependencies
-- `lib/pages/`: 
-- `lib/models/`: 
-- `lib/services/main.dart`:
+- `lib/pages/`: Frontend implementation from the UI design
+- `lib/models/`: Offline database for frontend
+- `lib/services/main.dart`: The main initialization to compile every file in the Flutter folder
 
 ## Context
 
