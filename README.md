@@ -6,15 +6,18 @@ Aidminton is a mobile application designed to help badminton players track and m
 
 - **Name**: Raditya Maheswara  
   **NIM**: 23/516252/PA/22075  
-  **University**: Universitas Gadjah Mada (UGM)
+  **University**: Universitas Gadjah Mada (UGM)  
+  **GitHub Link**: https://github.com/mash1rou
 
 - **Name**: Muhammad Fariz  
   **NIM**: 23/518174/PA/22237  
-  **University**: Universitas Gadjah Mada (UGM)
+  **University**: Universitas Gadjah Mada (UGM)  
+  **GitHub Link**: https://github.com/RujakBuah
 
 - **Name**: Girindra Daafi Mada  
   **NIM**: 23/511637/PA/21835  
-  **University**: Universitas Gadjah Mada (UGM)
+  **University**: Universitas Gadjah Mada (UGM)  
+  **GitHub Link**: https://github.com/girindradmada
 
 - **Name**: Sultan Rizqinta Sinuraya  
   **NIM**: 23/516307/PA/22087  
@@ -24,7 +27,6 @@ Aidminton is a mobile application designed to help badminton players track and m
   **NIM**: 23/511466/PA/21802  
   **University**: Universitas Gadjah Mada (UGM)
 
-
 ---
 
 ## Features
@@ -32,14 +34,13 @@ Aidminton is a mobile application designed to help badminton players track and m
 - **User Authentication**: Secure signup and login functionality
 - **Profile Management**: Users can update their personal information
 - **Common Injuries**: List of common injuries that can occur during badminton sessions
-- **Injury Loggin**: Record injury details including title, description, date, and pain level
+- **Injury Logging**: Record injury details including title, description, date, and pain level
 - **First Aid Guide**: Offline first aid encyclopedia for first hand emergency
 - **Injury History**: View a log of past injuries
 - **Medical Expert Resources**: Access information about medical professionals
-- **Customer Service**: Display FAQS and linked users to our customer support chat and call
-- **Emergency Contact**: Contacting emergency contacts through the user's registered contact / authorities 
+- **Customer Service**: Display FAQs and link users to our customer support chat and call
+- **Emergency Contact**: Contact emergency contacts through the user's registered contact / authorities 
 
-  
 ## Technology Stack
 
 - **Backend**: Flask (Python)
@@ -47,112 +48,89 @@ Aidminton is a mobile application designed to help badminton players track and m
 - **Frontend**: Flutter (Dart)
 - **Authentication**: Werkzeug security for password hashing
 
-## Troubleshooting (if trouble arises)
+## Troubleshooting
 
 ### 1. Gradle version not compatible (requires 8.4 instead of 8.3)
 
-- Open terminal and:
-  - `cd aidminton/android`
-  - Open `gradle-wrapper.properties` and ensure it contains:
-    ```
-    distributionBase=GRADLE_USER_HOME
-    distributionPath=wrapper/dists
-    zipStoreBase=GRADLE_USER_HOME
-    zipStorePath=wrapper/dists
-    distributionUrl=https://services.gradle.org/distributions/gradle-8.4-all.zip
-    ```
-- Then run:
-    ```
-    .\gradlew wrapper
-    ```
-- After installation:
-    ```
-    flutter clean
-    flutter pub get
-    flutter run
-    ```
+```bash
+cd aidminton/android
+```
+
+Edit `gradle-wrapper.properties` to include:
+```
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=https://services.gradle.org/distributions/gradle-8.4-all.zip
+```
+
+Then run:
+```bash
+.\gradlew wrapper
+flutter clean
+flutter pub get
+flutter run
+```
 
 ### 2. Python virtual environment not working / dependencies missing
 
-- Navigate to the backend directory:
-    ```
-    cd aidminton/flask-backend
-    ```
-- Delete any existing virtual environment
-- Create a new one:
-    ```
-    python3 -m venv venv
-    ```
-- Activate it:
-    ```
-    .\venv\Scripts\Activate
-    ```
-- If you get a policy error:
-  - Run PowerShell as Administrator:
-    ```
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-    ```
-  - Then try activating again:
-    ```
-    .\venv\Scripts\Activate
-    ```
-- Install dependencies:
-    ```
-    pip install -r requirements.txt
-    ```
+```bash
+cd aidminton/flask-backend
+```
 
+Create and activate a new virtual environment:
+```bash
+python3 -m venv venv
+.env\Scripts\Activate
+```
+
+If you get a policy error in PowerShell:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Then activate again and install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
 ## Installation
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/girindradmada/aidminton
    cd aidminton
    ```
-2. Make each terminal for backend and front end in powershell
 
-3. Cd to `aidminton/flask-backend` (Backend terminal)
+2. Open two terminals (backend & frontend).
 
-4. Activate a virtual enviroment (U can skip to 6, if there already is a virtual enviroment) (Backend terminal):
-   ```
-   # On Windows
-   venv\Scripts\activate
-   # On macOS/Linux
-   source venv/bin/activate
-   ```
-
-5. If there is not a virtual environment available and activate it (Backend terminal):
-   ```
+3. In backend terminal:
+   ```bash
+   cd aidminton/flask-backend
    python -m venv venv
-   # On Windows
-   venv\Scripts\activate
-   # On macOS/Linux
-   source venv/bin/activate
-   ```
-
-6. Install dependencies (Backend terminal):
-   ```
+   venv\Scriptsctivate
    pip install -r requirements.txt
    ```
 
-7. Cd to `aidminton/flask-backend/app/config.py` and change the FLASK_SECRET_KEY to your liking (Backend terminal):
-   ```
-   FLASK_SECRET_KEY=your_secret_key_here
+4. In `flask-backend/app/config.py`, set your secret key:
+   ```python
+   FLASK_SECRET_KEY = "your_secret_key_here"
    ```
 
-8. Go back `aidminton/flask-backend` and Initialize the database (Backend terminal):
-   ```
+5. Initialize the database:
+   ```bash
    python init_db.py
    ```
 
-9. Run the Backend Flask Session (Backend terminal):
-   ```
+6. Start the backend:
+   ```bash
    python run.py
    ```
 
-10. In the Frontend terminal, Cd to `aidminton` folder at the beginning, activate your Android Studio Emulator, and then run your appplication (Frontend terminal):
-   ```
-   #Activate your Android Studio Emulator
+7. In frontend terminal:
+   ```bash
+   cd aidminton
    flutter clean
    flutter pub get
    flutter run
@@ -160,20 +138,20 @@ Aidminton is a mobile application designed to help badminton players track and m
 
 ## Project Structure
 
-- `flask-backend/run.py`: Running the main python backend
-- `flask-backend/app/init_db.py`: Database initialization script
-- `flask-backend/app/models.py`: Offline database for backend
-- `flask-backend/app/routes.py`: Routing the user flow of backend to frontend
-- `flask-backend/app/config.py`: Configuration files for python
-- `requirements.txt`: Project dependencies
-- `lib/pages/`: Frontend implementation from the UI design
-- `lib/models/`: Offline database for frontend
-- `lib/services/main.dart`: The main initialization to compile every file in the Flutter folder
+- `flask-backend/run.py`: Main Python backend entry
+- `flask-backend/app/init_db.py`: Database initialization
+- `flask-backend/app/models.py`: Models and schema
+- `flask-backend/app/routes.py`: API routes
+- `flask-backend/app/config.py`: Config file
+- `requirements.txt`: Backend dependencies
+- `lib/pages/`: UI components (Flutter)
+- `lib/models/`: Data models (Flutter)
+- `lib/services/main.dart`: Entry point for Flutter app
 
 ## Context
 
-This project was for the subject Workshop Implementasi Rancangan Perangkat Lunak/Software Design Implementation Workshop
+This project was developed for the course *Workshop Implementasi Rancangan Perangkat Lunak* at Universitas Gadjah Mada.
 
 ## License
 
-This project is submitted for academic purposes and is not licensed for commercial use.
+This project is intended for academic use only and is not licensed for commercial use.
