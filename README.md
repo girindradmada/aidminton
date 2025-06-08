@@ -82,7 +82,7 @@ cd aidminton/flask-backend
 Create and activate a new virtual environment:
 ```bash
 python3 -m venv venv
-.env\Scripts\Activate
+.\env\Scripts\Activate
 ```
 
 If you get a policy error in PowerShell:
@@ -109,7 +109,7 @@ pip install -r requirements.txt
    ```bash
    cd aidminton/flask-backend
    python -m venv venv
-   venv\Scriptsctivate
+   venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
