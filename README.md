@@ -23,10 +23,6 @@ Aidminton is a mobile application designed to help badminton players track and m
   **NIM**: 23/516307/PA/22087  
   **University**: Universitas Gadjah Mada (UGM)
 
-- **Name**: Muhammad Rafif Akio  
-  **NIM**: 23/511466/PA/21802  
-  **University**: Universitas Gadjah Mada (UGM)
-
 ---
 
 ## Features
@@ -147,10 +143,6 @@ pip install -r requirements.txt
 - `lib/pages/`: UI components (Flutter)
 - `lib/models/`: Data models (Flutter)
 - `lib/services/main.dart`: Entry point for Flutter app
-
-## Context
-
-This project was developed for the course *Workshop Implementasi Rancangan Perangkat Lunak* at Universitas Gadjah Mada.
 
 ## License
 
